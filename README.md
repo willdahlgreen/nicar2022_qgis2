@@ -1,8 +1,8 @@
 # QGIS II - Filtering and analyzing geographic data to make maps
 
-**Nassos Stylianou ([@nassos_](https://www.twitter.com/nassos_)) & Will Dahlgreen ([@willdahlgreen](https://twitter.com/willdahlgreen)), BBC Data Journalism Team**
+**Rob England ([@nassos_](https://www.twitter.com/England_Rob_)) & Will Dahlgreen ([@willdahlgreen](https://twitter.com/willdahlgreen)), BBC Data Journalism Team**
 
-*NICAR 2019, 7-10 March, Newport Beach*
+*NICAR 2022, 3-6 March, Atlanta, Georgia*
 
 ## What are we going to cover?
 
