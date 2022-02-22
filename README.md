@@ -1,6 +1,6 @@
 # QGIS II - Filtering and analyzing geographic data to make maps
 
-**Rob England ([@@England_Rob_
+**Rob England ([@England_Rob_
 ](https://www.twitter.com/England_Rob_)) & Will Dahlgreen ([@willdahlgreen](https://twitter.com/willdahlgreen)), BBC Data Journalism Team**
 
 *NICAR 2022, 3-6 March, Atlanta, Georgia*
