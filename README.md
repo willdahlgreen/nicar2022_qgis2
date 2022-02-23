@@ -7,7 +7,9 @@
 
 ## What are we going to cover?
 
-This workshop should build on your existing knowledge of QGIS and show you how to filter and analyse geographic datasets using queries, before familiarising yourself with exporting the maps you have created using the print composer. 
+This workshop should build on your existing knowledge of QGIS and show you how to filter and analyse geographic datasets using queries, before familiarising yourself with exporting the maps you have created using the print composer.
+
+To explore these techniques we're going to be working with a dataset from the Department for Energy data on Power Plants in Georgia, as well as the county level shapefiles and cities data you may have seen in the QGIS I workshop.
 
 This class is ideal for those who attended the QGIS I workshop or already know the basics of visualising geographic data in QGIS. We will cover techniques like writing queries to filter your data, aggregating data for easier analysis, adding labels to your map before exporting as well as using Open Street Map data in QGIS. 
 
@@ -26,22 +28,22 @@ For this tutorial, we will go through the following:
 ### What data are we using?
 
 The data we are using in this workshop can be found and download here:
-https://www.dropbox.com/sh/tx1wpb5gr9znvxx/AABq53sdjrt4BArTUzn7WWh8a?dl=0
+https://www.dropbox.com/sh/bhxde5v033181l6/AACUejjHaLwEdxGYiQvOhzBna?dl=0
 
 You can go through the introduction class, QGIS I, here:
 [bit.ly/qgis1_nicar](https://docs.google.com/document/d/13LMw_nSkbels9-Y2zQZKbyoZtfGnAE7dJLZnCuaSnJY/edit)  
 
 ## Filtering shapefiles
 
-You will find that there will be times when you only want to use a portion of the data included in your shapefile. 
+For this first exercise, let's load in our counties `georgia_county_population_shapefile.shp` shapefile into QGIS. You can do this either by dragging the `.shp` file into QGIS or by going to the QGIS Menu bar, selecting `Open data source manager > Vector`, then browse to the shapefile in the folder of the same name, which is inside the `geography` folder.
 
-For example in our case, we have a shapefile with all counties in California (`CA_Counties_TIGER2016.shp`), but say we just want to look at Orange County, where we are currently located. 
-
-So first up you should load in our `CA_Counties_TIGER2016.shp` shapefile into QGIS. You can do this either by dragging the `.shp` file into QGIS or by going to `Layer > Add Layer > Add Vector Layer` from the QGIS Menu bar up top. 
 
 ![Adding a shapefile into QGIS](screenshots/qgis2_scrn1_adding_shapefile_into_qgis.png) 
 
-At this stage, you should also bring in your power plant dataset (`California_Power_Plant.shp`) that you worked with in [the earlier QGIS I tutorial](https://docs.google.com/document/d/13LMw_nSkbels9-Y2zQZKbyoZtfGnAE7dJLZnCuaSnJY/edit) as well. This shapefile includes point data for each power plant in California.
+
+You will find that there will be times when you only want to use a portion of the data included in your shapefile.
+
+For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the most people, Fulton. 
 
 As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that completely fine. 
 
@@ -61,41 +63,43 @@ The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.
 
 Once you select the Filter option, you should get a popup screen that looks something like this. 
 
+
 ![The Filter Query Builder in QGIS](screenshots/qgis2_scrn4_filter_query_builder.png)
+
 
 This Query Builder is a powerful tool and something experienced QGIS users will often use to query and filter as they explore their data before making a map.
 
 The `Fields` column essentially displays all the columns in your shapefile data, if it helps to think about a shapefile as an Excel spreadsheet, which you can see if you right click on your layer and click `Open Attribute table` . This is the data that comes for each feature in your shapefile layer. 
 
-But you can look at the data that each Field contains directly in this Query Builder. As mentioned earlier, what we want to do is filter the counties shapefile so that we are seeing just ‘Orange’ county and disregard all others. So we want to find the field with the county names and select Orange county. 
+But you can look at the data that each Field contains directly in this Query Builder. As mentioned earlier, what we want to do is filter the counties shapefile so that we are seeing just ‘Fulton’ county and disregard all others. So we want to find the field with the county names and select Fulton county. 
 
-Looking at all the Fields, a safe bet to filter by name would be using the `NAME` column. So in our `Fields` column, lets select and double click the `NAME` option. 
+Looking at all the Fields, a safe bet to filter by name would be using the `NAME` column. 
 
+In our `Fields` column, lets select and double click the `NAME` option. 
 
 ![Filtering by name](screenshots/qgis2_scrn5_filter_by_name.png)
-
 
 So what this does, as you can see above, is that it populates the space where we are meant to write our query with the text `"NAME"`. Now if we click on the `All` button just below the `Values` block, it will populate the `Values` section with the name of each of the counties that are included in our shapefile. 
 
 As the text in the block below the title `Provider specific filter expression` is essentially a space for `SQL` statements, we need to have an operator after our `"NAME"`. So after name, we should click on the `=` operator. 
 
-So the last step is to find Orange county in our list of county names. It looks like the names are in alphabetical order, so we could literally scroll down to find Orange county or we could type it in the values box. Once we have found it, if we double click it, it will populate the query section and our query should be now complete. 
+So the last step is to find Fulton county in our list of county names. It looks like the names are in alphabetical order, so we could literally scroll down to find Fulton county or we could type it in the values box. Once we have found it, if we double click it, it will populate the query section and our query should be now complete. 
 
 
 ![Querying shapefile](screenshots/qgis2_scrn6_query_builder_orange_county.png)
 
 
-Before you click on OK and run this filter query, you can actually test how many features (in our cases counties) this query will capture and check that this is the result you expected. 
+Before you click on OK and run this filter query, you can actually test how many features (in our cases counties) this query will capture and check that this is the result you expected.
 
-To do this, just click the `Test` button at the bottom left of your Query Builder window. 
+To do this, just click the `Test` button at the bottom left of your Query Builder window.
 
-This is the reply you should get - which is exactly what we want, that our result is one county, `Orange` county! 
+This is the reply you should get - which is exactly what we want, that our result is one county, `Fulton` county!
 
 
 ![Testing query](screenshots/qgis2_scrn7_test_filter.png)
 
 
-And if we now do press OK in our Query Builder,  our counties layer should now display just Orange county. 
+And if we now do press OK in our Query Builder,  our counties layer should now display just Fulton county.
 
 
 ![Result following query](screenshots/qgis2_scrn8_orange_county_layer_map.png)
@@ -103,18 +107,27 @@ And if we now do press OK in our Query Builder,  our counties layer should now d
 
 Success!
 
-Filtering in QGIS is a very powerful tool as it enables you to run a whole host of queries on your data, not just select a feature by name as we have done above. With discrete data, you can filter by category or with numeric data you can filter by any mathematical operations or values. 
+Filtering in QGIS is a very powerful tool as it enables you to run a whole host of queries on your data, not just select a feature by name as we have done above. With discrete data, you can filter by category or with numeric data you can filter by any mathematical operations or values.
 
-So looking at our other dataset, the power plants dataset, it has a number of columns with the different characteristics of each power plant. For example, there is a **Status** column which describes whether the power plant is is operational, retired, on standby or shutdown as well as as a column describing the type of fuel produced power plant, **General_Fu.** There are also numeric columns, such as the **MW** column that details the capacity of each plant in megawatts and the **Online_Year** column with the year that each plant came online. 
+This technique works just as well with datasets which use polygons or points that we can layer on top of our shapefile, which is what we'll show you now.
+
+Bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
+
+This includes point data for power plants in Georgia by energy source. It includes all plants with a combined total capacity of 1 megawatt or more that are operating, on standby, or are temporarily or permanently out of service as of August 2021.
+
+It should automatically populate the X and Y field, but if not you'll need to fill these with longitude and latitude.
+
+Looking at this dataset using `Open Attribute table` again, it has a number of columns with the different characteristics of each power plant. For example, there is a **primary_source** column which describes the type of power plant it is (solar, nuclear etc), as well as as a column describing whether they are a utility company or organisation, or an independant power producer, **sector_name**. 
+
+There are also numeric columns, such as the **total_MW** column that details the capacity of each plant in megawatts, and the type of energy being produced is broken down in subsequent columns.
 
 So given what we know about the data, we can run a more complex filter query and can choose to show power plants based on the following criteria:
 
-- Currently operational
+- run by utility companies (Electric utility)
 - Solar or Solar Thermal
 - Produce above 10MW 
-- Came online after 2010
 
-Before we write and run the query needed to filter the data, we can see that the full dataset has a total of 1830 power plants in our data.
+Before we write and run the query needed to filter the data, we can see that the full dataset has a total of 215 power plants.
 
 
 ![Checking how many entries in our data before running the complex query](screenshots/qgis2_scrn9_pre_complex_query.png)
