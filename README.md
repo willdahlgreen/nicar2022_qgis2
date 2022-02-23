@@ -111,7 +111,9 @@ Filtering in QGIS is a very powerful tool as it enables you to run a whole host 
 
 This technique works just as well with datasets which use polygons or points that we can layer on top of our shapefile, which is what we'll show you now.
 
-Bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
+Firstly, click the filter button you can see by our shapefile, that'll give us back the counties we filtered out previously.
+
+Now bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
 
 This includes point data for power plants in Georgia by energy source. It includes all plants with a combined total capacity of 1 megawatt or more that are operating, on standby, or are temporarily or permanently out of service as of August 2021.
 
