@@ -323,18 +323,23 @@ This offsets the label from the point along the trajectory you set in the `callo
 
 Print composer is where you go to get a map ready for publication. It allows you to add titles, scales, sources and then export them as a SVG or PNG. Using the power stations map that we labelled above, find `New Print Layout` under `Project` and in the box that pops up give it a name. Naming the print layout allows you to open it up again when the project is saved.
 
-Once the print composer window has opened, add the map by clicking `Add item` > `Add Map`. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
+Once the print composer window has opened, add the map by clicking ``Add Map` in the toolbar on the side. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
 
 Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
 
 
 ![Your print composer](screenshots/qgis2_scrn43_printcomposer1.png)
 
+
+If you want to increase the size of the map within the box you've drawn you can adjust this in `scale` in the `item properties` tab on the right side. Lowering the number will increase the size of the map, and increasing it will do the opposite.
+
+If you want to manually move the map around the box, you can do this by selecting the `Interactively edit map extent` option in the same tab.
+
 The default tends to be a landscape map, but sometimes you'll want more of a portrait image. To adjust this, right click on a blank area of the layout and select `page properties`.
 
 Here you can adjust the width and height of the page.
 
-To add a title click `Add Item` > `Add Label` and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
+To add a title click `Add Label` on the toolbar and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
 
 
 ![Formatting the text in your print composer](screenshots/qgis2_scrn44_printcomposer2.png)
@@ -342,7 +347,7 @@ To add a title click `Add Item` > `Add Label` and draw a text box on the main ca
 
 Reposition the map a bit using the steps above to give yourself room for a scale bar and source at the bottom. 
 
-To add the scale bar, click `Add Item` >  `Add Scale Bar` and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
+To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
 
 
 ![](screenshots/qgis2_scrn45_printcomposer3.png)
