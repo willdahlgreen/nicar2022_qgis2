@@ -43,7 +43,7 @@ You can do this either by dragging the `.shp` file into QGIS or by going to the 
 ![Adding a shapefile into QGIS](screenshots/qgis2_scrn1_adding_shapefile_into_qgis.png) 
 
 
-Let's then give it a bit of contrast by double-clicking the shapefile and under `fill` selecting `gray 3 fill`.
+Let's then give it a bit of contrast by double-clicking the shapefile and in the `symbology` tab selecting `gray 3 fill`.
 
 You will find that there will be times when you only want to use a portion of the data included in your shapefile.
 
