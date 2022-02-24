@@ -47,7 +47,7 @@ Let's then give it a bit of contrast by double-clicking the shapefile and in the
 
 You will find that there will be times when you only want to use a portion of the data included in your shapefile.
 
-For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the most people, Fulton.
+For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the highest population (as of 2020), Fulton.
 
 As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that completely fine. 
 
@@ -57,7 +57,7 @@ So make sure you have the counties shapefile selected in the Layers panel, as in
 ![Selecting a shapefile in the layers panel](screenshots/qgis2_scrn2_having_layer_selected_in_layers_panel.png)
 
 
-Once you have that, then go to the `Layer` menu in the main QGIS menu bar and click on the `Filter` option. 
+Once you have that, right click on the shapefile and click on the `Filter` option. 
 
 
 ![Getting to the filter option in QGIS](screenshots/qgis2_scrn3_filter_option_menu.png)
