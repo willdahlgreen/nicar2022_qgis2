@@ -115,7 +115,7 @@ Filtering in QGIS is a very powerful tool as it enables you to run a whole host 
 
 This technique works just as well with datasets which use polygons or points that we can layer on top of our shapefile, which is what we'll show you now.
 
-Firstly, click the filter button you can see by our shapefile, that'll give us back the counties we filtered out previously.
+Firstly, click the filter button you can see by our shapefile, then select `clear` in the Query Builder, that'll give us back the counties we filtered out previously.
 
 Now bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
 
@@ -166,9 +166,9 @@ Another thing you can use QGIS for is to select data by its geographic location.
 
 So say we want to select power plants located in a few select Georgia counties.
 
-The difference of selecting by location to the filtering we did earlier is that we are selecting data in **one dataset**, the power plant data, based on the geographic location which comes from **another dataset**, the counties shapefile. 
+The difference of selecting by location to the filtering we did earlier is that we are selecting data in **one dataset**, the power plant data, based on the geographic location which comes from **another dataset**, the county shapefile. 
 
-So in order to select just the power plants in Fulton county, we have to first select this counties in our `georgia_county_population_shapefile.shp` layer. 
+So in order to select just the power plants in the Fulton, Gwinnett and Cobb counties we have to first select them in our `georgia_county_population_shapefile.shp` layer. 
 
 Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the select features tool in the QGIS toolbar if you want to select them by eye for example. 
 
