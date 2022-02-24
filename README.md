@@ -35,15 +35,19 @@ You can go through the introduction class, QGIS I, here:
 
 ## Filtering shapefiles
 
-For this first exercise, let's load in our counties `georgia_county_population_shapefile.shp` shapefile into QGIS. You can do this either by dragging the `.shp` file into QGIS or by going to the QGIS Menu bar, selecting `Open data source manager > Vector`, then browse to the shapefile in the folder of the same name, which is inside the `geography` folder.
+For this first exercise, let's load in our counties `georgia_county_population_shapefile.shp` shapefile into QGIS. 
+
+You can do this either by dragging the `.shp` file into QGIS or by going to the QGIS Menu bar, selecting `Open data source manager > Vector`, then browse to the shapefile in the folder of the same name, which is inside the `geography` folder.
 
 
 ![Adding a shapefile into QGIS](screenshots/qgis2_scrn1_adding_shapefile_into_qgis.png) 
 
 
+Let's then give it a bit of contrast by double-clicking the shapefile and under `fill` selecting `gray 3 fill`.
+
 You will find that there will be times when you only want to use a portion of the data included in your shapefile.
 
-For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the most people, Fulton. 
+For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the most people, Fulton.
 
 As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that completely fine. 
 
@@ -59,7 +63,7 @@ Once you have that, then go to the `Layer` menu in the main QGIS menu bar and cl
 ![Getting to the filter option in QGIS](screenshots/qgis2_scrn3_filter_option_menu.png)
 
 
-The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.  
+The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.
 
 Once you select the Filter option, you should get a popup screen that looks something like this. 
 
@@ -129,24 +133,19 @@ So given what we know about the data, we can run a more complex filter query and
 - Solar or Solar Thermal
 - Produce above 10MW 
 
-Before we write and run the query needed to filter the data, we can see that the full dataset has a total of 215 power plants.
+Here is the query we will run:  
 
 
-![Checking how many entries in our data before running the complex query](screenshots/qgis2_scrn9_pre_complex_query.png)
+`("sector_name" = 'Electric Utility')  AND ("primary_source" = 'solar')  AND ("total_mw" > 10)`
 
 
-But when we run our query to include all power plants that satisfy the criteria set above, we get just 190 power plants and a map that looks much less crowded - and potentially more meaningful to us depending on the story we are trying to tell or the data we want to investigate. 
+When we run our query to include all power plants that satisfy the criteria set above, we get just seven power plants and a map that looks much less crowded - and potentially more meaningful to us depending on the story we are trying to tell or the data we want to investigate.
 
 
 ![Checking how many entries in our data after running the complex query](screenshots/qgis2_scrn10_post_complex_query.png)
 
 
-Here is the query we run:  
-
-
-`("General_Fu" = 'Solar' OR "General_Fu" = 'Solar Thermal') AND ("MW" > 10) AND ("Status" = 'Operating')`
-
-Now if we wanted to actually save out this filtered selection as a new file and only work with the selected data so that we do not have to load and import the entire dataset with almost 2,000 rows, then all you need to do is right click on the layer while it is filtered and click `Export > Save Features As…` 
+Now if we wanted to actually save out this filtered selection as a new file and only work with the selected data so that we do not have to load and import the entire dataset, all you need to do is right click on the layer while it is filtered and click `Export > Save Features As…` 
 
 
 ![Saving filtered shapefile](screenshots/qgis2_scrn11_save_filtered_layer.png)
@@ -158,18 +157,18 @@ What that will then do is give you a new popup screen where you can set your new
 ![Choosing the format you want to save your filtered file as](screenshots/qgis2_scrn12_save_filtered_layer_choose_format.png)
 
 
-So now you should be able to not only filter geographic data you have brought into QGIS but also do so using a complex query to filter on a number of criteria, before saving out your filtered dataset into an entire new file to work with. 
+So now you should be able to not only filter geographic data you have brought into QGIS but also do so using a complex query to filter on a number of criteria, before saving out your filtered dataset into an entire new file to work with.
 
 
 ## Selecting data by location 
 
-Another thing you can use QGIS for is to select data by its geographic location. 
+Another thing you can use QGIS for is to select data by its geographic location.
 
-So say we want to select power plants located in a few select California counties.
+So say we want to select power plants located in a few select Georgia counties.
 
 The difference of selecting by location to the filtering we did earlier is that we are selecting data in **one dataset**, the power plant data, based on the geographic location which comes from **another dataset**, the counties shapefile. 
 
-So in order to select just the power plants in Los Angeles county, Orange county and San Bernadino county, we have to first select these three counties in our `CA_Counties_TIGER2016` layer. 
+So in order to select just the power plants in Fulton county, we have to first select this counties in our `georgia_county_population_shapefile.shp` layer. 
 
 Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the select features tool in the QGIS toolbar if you want to select them by eye for example. 
 
@@ -185,7 +184,7 @@ We can do this by right clicking on our shapefile and selected the `Open Attribu
 ![Open the layer's attribute table](screenshots/qgis2_scrn14_open_attribute_table.png)
 
 
-This should open a popup for you with the attributes and data for each feature in our `CA_Counties_TIGER2016.shp` shapefile. 
+This should open a popup for you with the attributes and data for each feature in our `georgia_county_population_shapefile.shp` shapefile. 
 
 In the Attribute table, clicking on the ID of each feature on the left side will select that polygon in the map. 
 
@@ -207,9 +206,11 @@ Additionally, once we are in the Attribute table popup, we can actually select f
 
 If we click on the `Select features by expression` option (highlighted in screenshot above) in the toolbar of the attribute table, this will launch the Expression builder popup, which is not hugely different from the filter popup we worked with above.
 
+
 ![Expression builder](screenshots/qgis2_scrn18_expression_builder.png)
 
-The expression builder is very powerful and enables you to do a lot of complex mathematical operations, not just simple queries. In our case, we want to open up the `Fields and Values` where we can see all the columns in our data. If we double click on the column we want to use, in our case the `NAME` column and similarly to how we wrote the query above to filter our data, we can write a query to select the three counties, Orange county. Los Angeles county and San Bernadino county. 
+
+The expression builder is very powerful and enables you to do a lot of complex mathematical operations, not just simple queries. In our case, we want to open up the `Fields and Values` where we can see all the columns in our data. If we double click on the column we want to use, in our case the `NAME` column and similarly to how we wrote the query above to filter our data, we can write a query to select the three most populous counties, Fulton, Gwinnett and Cobb.
 
 
 ![Example of an expression to select by](screenshots/qgis2_scrn19_expression_builder_with_expression.png)
@@ -217,7 +218,7 @@ The expression builder is very powerful and enables you to do a lot of complex m
 
 Here is the query we have included in the Expression box:
 
- `"NAME" = 'Los Angeles' OR "NAME" = 'Orange' OR "NAME" = 'San Bernardino'` 
+ `"NAME" = 'Fulton' OR "NAME" = 'Gwinnett' OR "NAME" = 'Cobb'` 
 
 If you then click on the `Select features` button at the bottom right of your popup box, the three counties in question should be selected (highlighted in yellow) on your map view. 
 
@@ -238,7 +239,7 @@ With our three counties selected, by going to the Vector menu in our QGIS menu b
 
 On making that choice, you get a popup so that you can make the right selection. What we want to do is select features from our power plant point dataset that `are within`  the counties shapefile, so we modify the options in our Select by Location popup to reflect that, as you can see below. 
 
-The last thing is that we we want to ensure that the `Selected features only` option is ticked, so that only the power plants in our selected states of Los Angeles, Orange county and San Bernadino will be selected. We have also selected to create a new selection and then we can press `Run`.
+The last thing is that we we want to ensure that the `Selected features only` option is ticked, so that only the power plants in our selected counties will be selected. We have also selected to create a new selection and then we can press `Run`.
 
 
 ![Selecting by location choices](screenshots/qgis2_scrn22_select_by_location_popup_options.png)
