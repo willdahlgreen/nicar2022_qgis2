@@ -319,16 +319,21 @@ This offsets the label from the point along the trajectory you set in the `callo
 
 ## Tips and tricks when exporting your map
 
-Now it's time for the final flourish.
-
 Print composer is where you go to get a map ready for publication. It allows you to add titles, scales, sources and then export them as a SVG or PNG. Using the power stations map that we labelled above, find `New Print Layout` under `Project` and in the box that pops up give it a name. Naming the print layout allows you to open it up again when the project is saved.
 
-Once the print composer window has opened, add the map by clicking `Add item` > `Add Map`. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right to get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
+Once the print composer window has opened, add the map by clicking `Add item` > `Add Map`. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
+
+Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
+
 
 ![Your print composer](screenshots/qgis2_scrn43_printcomposer1.png)
 
+The default tends to be a landscape map, but sometimes you'll want more of a portrait image. To adjust this, right click on a blank area of the layout and select `page properties`.
+
+Here you can adjust the width and height of the page.
 
 To add a title click `Add Item` > `Add Label` and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
+
 
 ![Formatting the text in your print composer](screenshots/qgis2_scrn44_printcomposer2.png)
 
@@ -337,31 +342,35 @@ Reposition the map a bit using the steps above to give yourself room for a scale
 
 To add the scale bar, click `Add Item` >  `Add Scale Bar` and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
 
-![](screenshots/qgis2_scrn45_printcomposer3.png)
 
+![](screenshots/qgis2_scrn45_printcomposer3.png)
 
 
 To add a source, repeat the steps above on creating a title but lower the font size a bit. Move it to the bottom and then draw a line above it by clicking `Add Item` > `Add Shape` > `Add Rectangle`. Drag this across the width of the canvas and make sure it’s not got any depth, so it looks like a line rather than a box. If you find it hard to select the line using the cursor once it’s created because it’s so thin, select the `<rectangle>`  item it in the `Items` panel in the top right instead; from there you can set the style under the `Main properties` section on the right.
 
+ 
+ 
 ![Adding a source to the bottom of your map](screenshots/qgis2_scrn46_printcomposer4.png)
 
 
 
-To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Image source` section of `Main Properties` on the right browse to the location of your picture, which is in the screenshots folder. Insert the image and then drag it to the bottom right of the map.
+To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder.
 
+ 
 ![Adding a logo to your map](screenshots/qgis2_scrn47_printcomposer5.png)
 
 
 You can now export the map as an image, under `Layout` > `Export as Image` or as an SVG under `Layout` > `Export as SVG` , although the SVG export function is probably better used at an earlier stage, before all the labels etc have been added, so that you can edit the map in Adobe Illustrator, say, and add the extras using Illustrator itself.
 
-
+ 
 ## Aggregating data: Points in polygons
 
-What if you have a lot of point data, and you want to actually make a choropleth map of the number of points in each area? For example in our case, we want to make a map displaying the number of **solar** **power plants** in each of California’s counties?
+ 
+What if you have a lot of point data, and you want to actually make a choropleth map of the number of points in each area? For example in our case, we want to make a map displaying the number of **solar** **power plants** in each of Georgia’s counties?
 
 You could export the data and group it by county for example if you have a counties column in your dataset, or if you don’t you could geocode the data to find the county each point lies within, but we can count how many points are located within each polygon easily within QGIS with a `Count points in polygons` spatial analysis. 
 
-First up, we will select the solar power plants in the same way we explored above, so if we right click the `California_Power_Plant` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `General_Fu` column.
+First up, we will select the solar power plants in the same way we explored above, so if we right click the `power_plants` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `primary_source` column.
 
 
 ![Opening the attribute table](screenshots/qgis2_scrn25_open_attribute_table.png)
@@ -391,7 +400,7 @@ When we select that option, we get a popup to select the specific layers we want
 ![Counting points in polygons popup](screenshots/qgis2_scrn30b_count_points_in_polygons1.png)
 
 
-So for our data, the points layer is the `California_Power_Plant` and the polygons layer is the `CA_Counties_TIGER2016`. The Count field name is automatically filled in for us with the name `NUMPOINTS`, you can change that if you want to. 
+So for our data, the points layer is the `power_plants` and the polygons layer is the `georgia_county_shapefile_population`. The Count field name is automatically filled in for us with the name `NUMPOINTS`, you can change that if you want to. 
 
 Remember given we want to see just the solar power plants, which we selected above, we need to make sure that `Selected features only` is ticked. 
 
