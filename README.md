@@ -269,6 +269,7 @@ At first you might want to simply add a label for every power station. Do this b
 
 However, this is a bit messy! 
 
+
 ![How labels will look on your map](screenshots/qgis2_scrn37_labelling2.png)
 
 
@@ -313,7 +314,7 @@ In the `callouts` section, in `style` select `Manhattan lines`. This draws a ver
 
 Under `label anchor points` select `Top Centre`, this refers to the path the lines will take.
 
-However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `Around Point` and adjust the `distance to `-60.0000`. 
+However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `Around Point` and adjust the `distance to `-20.0000`. 
 
 This offsets the label from the point along the trajectory you set in the `callouts` section.
 
