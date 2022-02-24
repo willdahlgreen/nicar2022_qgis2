@@ -247,7 +247,7 @@ The last thing is that we we want to ensure that the `Selected features only` op
 
 What you should now see after clicking Run is that all the power plants in these three counties alone are now highlighted yellow, so you can tell that the have been selected. 
 
-In order to save these in a new file, whether you want to save it out as a Geojson, shapefile or CSV, all you need to do is right click on the `California_Power_Plant` layer, got to `Export > Save Selected Features As…`. Make sure you click on save **selected** features, otherwise it will just save all the features (points) in the dataset. 
+In order to save these in a new file, whether you want to save it out as a Geojson, shapefile or CSV, all you need to do is right click on the `power_plants` layer, got to `Export > Save Selected Features As…`. Make sure you click on save **selected** features, otherwise it will just save all the features (points) in the dataset. 
 
 ![Saving selected features to create a new shapefile](screenshots/qgis2_scrn23_save_selected_features.png)
 
@@ -260,14 +260,14 @@ Awesome, you have now created a new shapefile with just the power plants that ar
 
 ## Adding labels to your map
 
-Using the same California states shapefile as above with our power stations data on top, we can start adding some labels. 
+Using the same Georgia counties shapefile as above with our power stations data on top, we can start adding some labels. 
 
 At first you might want to simply add a label for every power station. Do this by double clicking the power plants layer (or right click and hit `Properties`) and head into the `Labels` tab on the left. Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
 
 ![How to add labels to your map](screenshots/qgis2_scrn36_labelling1.png)
 
 
-However, this will get a bit unwieldy! 
+However, this is a bit messy! 
 
 ![How labels will look on your map](screenshots/qgis2_scrn37_labelling2.png)
 
@@ -278,7 +278,7 @@ If we were doing a story on one type of power plants we’d want to add criteria
 
 
 
-Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `General_Fu`. This will place it into the expression builder but we also have to set what value `General_Fu` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `Coal`. Click `OK`.
+Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `Coal`. Click `OK`.
 
 ![](screenshots/qgis2_scrn_label_coal_filter.png)
 
@@ -286,22 +286,40 @@ Click the `∈` sign to get to the `Expression String Builder` and when that ope
 
 Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
 
+
 ![Filtered labels on your map](screenshots/qgis2_scrn40_labelling5.png)
 
 
 You might also want to add a background to the labels so they can be seen over land areas. Double click on the rule you created in the properties window of the power stations layer, and edit this in `Background`. 
 
+You can also draw an outline around the text specifically in the `Buffer` tab.
+
+
 ![Adding a background to your labels](screenshots/qgis2_scrn41_labelling6.png)
 
 
-You can also go into the `Formatting` section to make labels wrap onto 2 lines after a certain amount of characters.
+If the text is quite long you can also go into the `Formatting` section to make labels wrap onto 2 lines after a certain amount of characters.
+
+For this try wrapping lines to nine characters.
+
 
 ![](screenshots/qgis2_scrn42_labelling7.png)
 
 
-You can connect points with labels via callout lines, but you need to install another plugin such as EasyCustomLabeling.
+At the moment the labels are a bit bunched up, so let's try to sort that.
+
+In the `callouts` section, in `style` select `Manhattan lines`. This draws a vertical and horizontal line to the point.
+
+Under `label anchor points` select `Top Centre`, this refers to the path the lines will take.
+
+However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `Around Point` and adjust the `distance to `-60.0000`. 
+
+This offsets the label from the point along the trajectory you set in the `callouts` section.
+
 
 ## Tips and tricks when exporting your map
+
+Now it's time for the final flourish.
 
 Print composer is where you go to get a map ready for publication. It allows you to add titles, scales, sources and then export them as a SVG or PNG. Using the power stations map that we labelled above, find `New Print Layout` under `Project` and in the box that pops up give it a name. Naming the print layout allows you to open it up again when the project is saved.
 
