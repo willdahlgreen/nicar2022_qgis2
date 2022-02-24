@@ -272,13 +272,14 @@ However, this is a bit messy!
 ![How labels will look on your map](screenshots/qgis2_scrn37_labelling2.png)
 
 
-If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for coal power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
+If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for solar power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
+
 
 ![Rule-based labelling](screenshots/qgis2_scrn38_labelling3.png)
 
 
 
-Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `Coal`. Click `OK`.
+Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `solar`. Click `OK`.
 
 ![](screenshots/qgis2_scrn_label_coal_filter.png)
 
