@@ -42,8 +42,14 @@ You can do this either by dragging the `.shp` file into QGIS or by going to the 
 
 ![Adding a shapefile into QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_1.png) 
 
+![Adding a shapefile into QGIS pt 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_2.png) 
+
 
 Let's then give it a bit of contrast by double-clicking the shapefile and in the `symbology` tab selecting `gray 3 fill`.
+
+
+![Adding a shapefile into QGIS pt 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_3.png) 
+
 
 You will find that there will be times when you only want to use a portion of the data included in your shapefile.
 
@@ -54,13 +60,13 @@ As with most things in QGIS, there is more than  one single way to filter your d
 So make sure you have the counties shapefile selected in the Layers panel, as in the screenshot below. 
 
 
-![Selecting a shapefile in the layers panel](screenshots/qgis2_scrn2_having_layer_selected_in_layers_panel.png)
+![Selecting a shapefile in the layers panel](screenshots/new_nicar_screenshots/qgis_2_screenshot_4.png)
 
 
 Once you have that, right click on the shapefile and click on the `Filter` option. 
 
 
-![Getting to the filter option in QGIS](screenshots/qgis2_scrn3_filter_option_menu.png)
+![Getting to the filter option in QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_5.png)
 
 
 The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.
@@ -68,7 +74,7 @@ The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.
 Once you select the Filter option, you should get a popup screen that looks something like this. 
 
 
-![The Filter Query Builder in QGIS](screenshots/qgis2_scrn4_filter_query_builder.png)
+![The Filter Query Builder in QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_6.png)
 
 
 This Query Builder is a powerful tool and something experienced QGIS users will often use to query and filter as they explore their data before making a map.
@@ -81,7 +87,7 @@ Looking at all the Fields, a safe bet to filter by name would be using the `NAME
 
 In our `Fields` column, lets select and double click the `NAME` option. 
 
-![Filtering by name](screenshots/qgis2_scrn5_filter_by_name.png)
+![Filtering by name](screenshots/new_nicar_screenshots/qgis_2_screenshot_8.png)
 
 So what this does, as you can see above, is that it populates the space where we are meant to write our query with the text `"NAME"`. Now if we click on the `All` button just below the `Values` block, it will populate the `Values` section with the name of each of the counties that are included in our shapefile. 
 
@@ -90,7 +96,7 @@ As the text in the block below the title `Provider specific filter expression` i
 So the last step is to find Fulton county in our list of county names. It looks like the names are in alphabetical order, so we could literally scroll down to find Fulton county or we could type it in the values box. Once we have found it, if we double click it, it will populate the query section and our query should be now complete. 
 
 
-![Querying shapefile](screenshots/qgis2_scrn6_query_builder_orange_county.png)
+![Filtering by name_2](screenshots/new_nicar_screenshots/qgis_2_screenshot_9.png)
 
 
 Before you click on OK and run this filter query, you can actually test how many features (in our cases counties) this query will capture and check that this is the result you expected.
@@ -99,14 +105,10 @@ To do this, just click the `Test` button at the bottom left of your Query Builde
 
 This is the reply you should get - which is exactly what we want, that our result is one county, `Fulton` county!
 
-
-![Testing query](screenshots/qgis2_scrn7_test_filter.png)
-
-
 And if we now do press OK in our Query Builder,  our counties layer should now display just Fulton county.
 
 
-![Result following query](screenshots/qgis2_scrn8_orange_county_layer_map.png)
+![Result following query](screenshots/new_nicar_screenshots/qgis_2_screenshot_10.png)
 
 
 Success!
@@ -116,6 +118,9 @@ Filtering in QGIS is a very powerful tool as it enables you to run a whole host 
 This technique works just as well with datasets which use polygons or points that we can layer on top of our shapefile, which is what we'll show you now.
 
 Firstly, click the filter button you can see by our shapefile, then select `clear` in the Query Builder, that'll give us back the counties we filtered out previously.
+
+![reset shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_11.png)
+
 
 Now bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
 
