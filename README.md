@@ -40,7 +40,7 @@ For this first exercise, let's load in our counties `georgia_county_population_s
 You can do this either by dragging the `.shp` file into QGIS or by going to the QGIS Menu bar, selecting `Open data source manager > Vector`, then browse to the shapefile in the folder of the same name, which is inside the `geography` folder.
 
 
-![Adding a shapefile into QGIS](screenshots/qgis2_scrn1_adding_shapefile_into_qgis.png) 
+![Adding a shapefile into QGIS](new_nicar%20screenshots/qgis_2_screenshot_1.png) 
 
 
 Let's then give it a bit of contrast by double-clicking the shapefile and in the `symbology` tab selecting `gray 3 fill`.
