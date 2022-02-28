@@ -276,6 +276,9 @@ In order to save these in a new file, whether you want to save it out as a Geojs
 ![Saving selected features to create a new shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_26.png)
 
 
+Give the new shapefile a distinctive name, we've gone for `three_counties_data`.
+
+
 Awesome, you have now created a new shapefile with just the power plants that are in those three counties!
 
 
@@ -286,7 +289,7 @@ Awesome, you have now created a new shapefile with just the power plants that ar
 
 Using the same Georgia counties shapefile as above with our power stations data on top, we can start adding some labels. 
 
-At first you might want to simply add a label for every power station. Do this by double clicking the power plants layer (or right click and hit `Properties`) and head into the `Labels` tab. 
+At first you might want to simply add a label for every power station. Do this by double clicking our most recent creation `three_counties_data` (or right click on it and hit `Properties`) and head into the `Labels` tab.
 
 Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
 
