@@ -274,47 +274,51 @@ What you should now see after clicking Run is that all the power plants in these
 
 In order to save these in a new file, whether you want to save it out as a Geojson, shapefile or CSV, all you need to do is right click on the `power_plants` layer, got to `Export > Save Selected Features As…`. Make sure you click on save **selected** features, otherwise it will just save all the features (points) in the dataset. 
 
-![Saving selected features to create a new shapefile](screenshots/qgis2_scrn23_save_selected_features.png)
+
+![Saving selected features to create a new shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_26.png)
 
 
 Awesome, you have now created a new shapefile with just the power plants that are in those three counties!
 
 
-![Just the power plants in our selected counties](screenshots/qgis2_scrn24_power_plants_selected_counties.png)
+![Just the power plants in our selected counties](screenshots/new_nicar_screenshots/qgis_2_screenshot_27.png)
 
 
 ## Adding labels to your map
 
 Using the same Georgia counties shapefile as above with our power stations data on top, we can start adding some labels. 
 
-At first you might want to simply add a label for every power station. Do this by double clicking the power plants layer (or right click and hit `Properties`) and head into the `Labels` tab on the left. Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
+At first you might want to simply add a label for every power station. Do this by double clicking the power plants layer (or right click and hit `Properties`) and head into the `Labels` tab. 
 
-![How to add labels to your map](screenshots/qgis2_scrn36_labelling1.png)
+Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
+
+![How to add labels to your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_28.png)
 
 
 However, this is a bit messy! 
 
 
-![How labels will look on your map](screenshots/qgis2_scrn37_labelling2.png)
+![How labels will look on your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_29.png)
 
 
 If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for solar power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
 
 
-![Rule-based labelling](screenshots/qgis2_scrn38_labelling3.png)
+![Rule-based labelling](screenshots/new_nicar_screenshots/qgis_2_screenshot_30.png)
 
 
 
 Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `solar`. Click `OK`.
 
-![](screenshots/qgis2_scrn_label_coal_filter.png)
 
+![solar filer](screenshots/new_nicar_screenshots/qgis_2_screenshot_31.png)
 
 
 Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
 
 
-![Filtered labels on your map](screenshots/qgis2_scrn40_labelling5.png)
+[need a screen shot of filtered labels]
+
 
 
 You might also want to add a background to the labels so they can be seen over land areas. Double click on the rule you created in the properties window of the power stations layer, and edit this in `Background`. 
@@ -322,7 +326,7 @@ You might also want to add a background to the labels so they can be seen over l
 You can also draw an outline around the text specifically in the `Buffer` tab.
 
 
-![Adding a background to your labels](screenshots/qgis2_scrn41_labelling6.png)
+[need a screen shot of background/buffer labels]
 
 
 If the text is quite long you can also go into the `Formatting` section to make labels wrap onto 2 lines after a certain amount of characters.
@@ -330,7 +334,7 @@ If the text is quite long you can also go into the `Formatting` section to make 
 For this try wrapping lines to nine characters.
 
 
-![](screenshots/qgis2_scrn42_labelling7.png)
+[need a screen shot of manhattan labels]
 
 
 At the moment the labels are a bit bunched up, so let's try to sort that.
@@ -348,17 +352,29 @@ This offsets the label from the point along the trajectory you set in the `callo
 
 Print composer is where you go to get a map ready for publication. It allows you to add titles, scales, sources and then export them as a SVG or PNG. Using the power stations map that we labelled above, find `New Print Layout` under `Project` and in the box that pops up give it a name. Naming the print layout allows you to open it up again when the project is saved.
 
+
+![Your print composer](screenshots/new_nicar_screenshots/qgis_2_screenshot_32.png)
+
+
 Once the print composer window has opened, add the map by clicking ``Add Map` in the toolbar on the side. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
+
+
+![add map](screenshots/new_nicar_screenshots/qgis_2_screenshot_33.png)
+
 
 Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
 
-
-![Your print composer](screenshots/qgis2_scrn43_printcomposer1.png)
-
-
 If you want to increase the size of the map within the box you've drawn you can adjust this in `scale` in the `item properties` tab on the right side. Lowering the number will increase the size of the map, and increasing it will do the opposite.
 
+
+![scale up](screenshots/new_nicar_screenshots/qgis_2_screenshot_34.png)
+
+
 If you want to manually move the map around the box, you can do this by selecting the `Interactively edit map extent` option in the same tab.
+
+
+![move map around](screenshots/new_nicar_screenshots/qgis_2_screenshot_35.png)
+
 
 The default tends to be a landscape map, but sometimes you'll want more of a portrait image. To adjust this, right click on a blank area of the layout and select `page properties`.
 
@@ -367,30 +383,34 @@ Here you can adjust the width and height of the page.
 To add a title click `Add Label` on the toolbar and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
 
 
-![Formatting the text in your print composer](screenshots/qgis2_scrn44_printcomposer2.png)
+![Adding a label to map](screenshots/new_nicar_screenshots/qgis_2_screenshot_36.png)
 
 
-Reposition the map a bit using the steps above to give yourself room for a scale bar and source at the bottom. 
+![Formatting the text in print composer](screenshots/new_nicar_screenshots/qgis_2_screenshot_37.png)
+
+
+Reposition the map a bit using the steps above to give yourself room for a scale bar and source too. 
 
 To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
 
 
-![](screenshots/qgis2_scrn45_printcomposer3.png)
+![scale bar](screenshots/new_nicar_screenshots/qgis_2_screenshot_38.png)
 
 
 To add a source, repeat the steps above on creating a title but lower the font size a bit. Move it to the bottom and then draw a line above it by clicking `Add Item` > `Add Shape` > `Add Rectangle`. Drag this across the width of the canvas and make sure it’s not got any depth, so it looks like a line rather than a box. If you find it hard to select the line using the cursor once it’s created because it’s so thin, select the `<rectangle>`  item it in the `Items` panel in the top right instead; from there you can set the style under the `Main properties` section on the right.
 
  
  
-![Adding a source to the bottom of your map](screenshots/qgis2_scrn46_printcomposer4.png)
+![Adding a line to the bottom of your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_39.png)
 
+
+![Adding a source to the bottom of your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_40.png)
 
 
 To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder.
 
  
-![Adding a logo to your map](screenshots/qgis2_scrn47_printcomposer5.png)
-
+[need to add screenshot of logo]
 
 You can now export the map as an image, under `Layout` > `Export as Image` or as an SVG under `Layout` > `Export as SVG` , although the SVG export function is probably better used at an earlier stage, before all the labels etc have been added, so that you can edit the map in Adobe Illustrator, say, and add the extras using Illustrator itself.
 
@@ -405,34 +425,29 @@ You could export the data and group it by county for example if you have a count
 First up, we will select the solar power plants in the same way we explored above, so if we right click the `power_plants` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `primary_source` column.
 
 
-![Opening the attribute table](screenshots/qgis2_scrn25_open_attribute_table.png)
-
-
-
-![Filtering just for solar plants](screenshots/qgis2_scrn28_filter_solar2.png)
+[need to add screenshot of filter]
 
 
 And if you click `Select features` at the bottom once you have queried by Solar, you should get something like this, which shows the points highlighted in yellow (selected) that are the Solar power plants.
 
 
-![Only selected power plants (solar) are highlighted](screenshots/qgis2_scrn29_filter_solar3.png)
+[need to add screenshot of selected solar power plants]
 
 
 Once you have selected the power plants you want, the next step to making the choropleth map is to run the `Count Points in Polygon` analysis.
 
 `Vector > Analysis Tools > Count Points in Polygon`
 
-
-![Counting points in polygons option](screenshots/qgis2_scrn30a_count_points_in_polygons.png)
+[Add screenshot of points in polygons menu]
 
 
 When we select that option, we get a popup to select the specific layers we want to look at, the layer for the points we want to count and the layer with the polygons that we want the points to fall within. 
 
-
-![Counting points in polygons popup](screenshots/qgis2_scrn30b_count_points_in_polygons1.png)
-
-
 So for our data, the points layer is the `power_plants` and the polygons layer is the `georgia_county_shapefile_population`. The Count field name is automatically filled in for us with the name `NUMPOINTS`, you can change that if you want to. 
+
+
+![Counting points in polygons option](screenshots/new_nicar_screenshots/qgis_2_screenshot_41.png)
+
 
 Remember given we want to see just the solar power plants, which we selected above, we need to make sure that `Selected features only` is ticked. 
 
@@ -441,30 +456,28 @@ When we click the `Run` button, what this will do is that it will create a new t
 When you go back to your main QGIS window after the count points in polygons analysis finishes, you will get a new layer called `Count` in your layer window. 
 
 
-![New shapefile with counts for each polygon created](screenshots/qgis2_scrn31_count_points_in_polygons2.png)
+[screenshot of count layer]
 
 
 To make your choropleth map, you need to double click on the Count layer and make your map as you would normally do (see QGIS I).
 
 `Double click Count layer > Symbology > Graduated`  
 
-
-![Making a choropleth map with this new data](screenshots/qgis2_scrn32_count_points_in_polygons3.png)
-
-
 Once you select the Graduated option, you can then pick the column which contains the data you want to use for your choropleth map, which we know in our case is the column called `NUMPOINTS`. 
 
 You can then choose the mode you want - have gone for Equal Interval here - and picked five classes, but what you choose is up to you!
 
-![Picking your options to create a choropleth map](screenshots/qgis2_scrn33_count_points_in_polygons3.png)
-
-
 Once you click `Classify`, you will get the different classes and colours QGIS has selected for your map based on the input options.
 
-![Picking your options to create a choropleth map](screenshots/qgis2_scrn34_count_points_in_polygons4.png)
+
+![Making a choropleth map with this new data](screenshots/new_nicar_screenshots/qgis_2_screenshot_42.png)
 
 
 Success! If you then go back to the main QGIS window, you can see your choropleth map where each county is coloured based on the number of solar power plants it has. 
+
+
+![new choropleth map](screenshots/new_nicar_screenshots/qgis_2_screenshot_43.png)
+
 
 
 ![Choropleth map is coloured by how many solar power plants are in each county](screenshots/qgis2_scrn35_count_points_in_polygons5.png)
