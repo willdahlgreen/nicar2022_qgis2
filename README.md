@@ -81,6 +81,10 @@ This Query Builder is a powerful tool and something experienced QGIS users will 
 
 The `Fields` column essentially displays all the columns in your shapefile data, if it helps to think about a shapefile as an Excel spreadsheet, which you can see if you right click on your layer and click `Open Attribute table` . This is the data that comes for each feature in your shapefile layer. 
 
+
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
+
+
 But you can look at the data that each Field contains directly in this Query Builder. As mentioned earlier, what we want to do is filter the counties shapefile so that we are seeing just ‘Fulton’ county and disregard all others. So we want to find the field with the county names and select Fulton county. 
 
 Looking at all the Fields, a safe bet to filter by name would be using the `NAME` column. 
@@ -119,16 +123,34 @@ This technique works just as well with datasets which use polygons or points tha
 
 Firstly, click the filter button you can see by our shapefile, then select `clear` in the Query Builder, that'll give us back the counties we filtered out previously.
 
+
 ![reset shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_11.png)
 
 
 Now bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
 
+
+![open point data](screenshots/new_nicar_screenshots/qgis_2_screenshot_12.png)
+
+
 This includes point data for power plants in Georgia by energy source. It includes all plants with a combined total capacity of 1 megawatt or more that are operating, on standby, or are temporarily or permanently out of service as of August 2021.
 
 It should automatically populate the X and Y field, but if not you'll need to fill these with longitude and latitude.
 
+
+![view point data](screenshots/new_nicar_screenshots/qgis_2_screenshot_13.png)
+
+
 Looking at this dataset using `Open Attribute table` again, it has a number of columns with the different characteristics of each power plant. For example, there is a **primary_source** column which describes the type of power plant it is (solar, nuclear etc), as well as as a column describing whether they are a utility company or organisation, or an independant power producer, **sector_name**. 
+
+
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
+
+
+
+![open attribute table 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_15.png)
+
+
 
 There are also numeric columns, such as the **total_MW** column that details the capacity of each plant in megawatts, and the type of energy being produced is broken down in subsequent columns.
 
@@ -144,28 +166,30 @@ Here is the query we will run:
 `("sector_name" = 'Electric Utility')  AND ("primary_source" = 'solar')  AND ("total_mw" > 10)`
 
 
+
+![advanced query filter](screenshots/new_nicar_screenshots/qgis_2_screenshot_16.png)
+
+
+
 When we run our query to include all power plants that satisfy the criteria set above, we get just seven power plants and a map that looks much less crowded - and potentially more meaningful to us depending on the story we are trying to tell or the data we want to investigate.
-
-
-![Checking how many entries in our data after running the complex query](screenshots/qgis2_scrn10_post_complex_query.png)
-
 
 Now if we wanted to actually save out this filtered selection as a new file and only work with the selected data so that we do not have to load and import the entire dataset, all you need to do is right click on the layer while it is filtered and click `Export > Save Features As…` 
 
 
-![Saving filtered shapefile](screenshots/qgis2_scrn11_save_filtered_layer.png)
+![Saving filtered shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_17.png)
 
 
 What that will then do is give you a new popup screen where you can set your new file name, where you want to save it as well as the file format, so depending on what you plan to do with it, you can save it as a CSV a Shapefile, a KML etc. 
 
 
-![Choosing the format you want to save your filtered file as](screenshots/qgis2_scrn12_save_filtered_layer_choose_format.png)
+![Saving filtered shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_18.png)
 
 
 So now you should be able to not only filter geographic data you have brought into QGIS but also do so using a complex query to filter on a number of criteria, before saving out your filtered dataset into an entire new file to work with.
 
 
 ## Selecting data by location 
+
 
 Another thing you can use QGIS for is to select data by its geographic location.
 
@@ -178,15 +202,15 @@ So in order to select just the power plants in the Fulton, Gwinnett and Cobb cou
 Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the select features tool in the QGIS toolbar if you want to select them by eye for example. 
 
 
-![Selecting features](screenshots/qgis2_scrn13_select_features.png)
+![Selecting features](screenshots/new_nicar_screenshots/qgis_2_screenshot_19.png)
 
 
 Another way is by opening the attribute table of the shapefile and ‘look under the hood’ so to speak. 
 
-We can do this by right clicking on our shapefile and selected the `Open Attribute Table` option. 
+We can do this by right clicking on our shapefile and selected the `Open Attribute Table` option the way we did it earlier, like so:
 
 
-![Open the layer's attribute table](screenshots/qgis2_scrn14_open_attribute_table.png)
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
 
 
 This should open a popup for you with the attributes and data for each feature in our `georgia_county_population_shapefile.shp` shapefile. 
@@ -194,31 +218,29 @@ This should open a popup for you with the attributes and data for each feature i
 In the Attribute table, clicking on the ID of each feature on the left side will select that polygon in the map. 
 
 
-![Selecting features from the attribute table](screenshots/qgis2_scrn15_select_attribute_table.png)
+![Selecting features from the attribute table polygons](screenshots/new_nicar_screenshots/qgis_2_screenshot_20.png)
 
 
 If you hold the `(⌘)` button on Mac or `Ctrl` in Windows and then click on the ID you can select more than one polygon at a time.
 
-
-![Multiple feature selection](screenshots/qgis2_scrn16_multiple_selection.png)
-
-
 Additionally, once we are in the Attribute table popup, we can actually select features in our shapefile by using a query/expression in a similar way to the filtering we did earlier.
 
 
-![Selecting features by expression](screenshots/qgis2_scrn17_select_by_expression.png)
+![Selecting features by expression](screenshots/new_nicar_screenshots/qgis_2_screenshot_21.png)
 
 
 If we click on the `Select features by expression` option (highlighted in screenshot above) in the toolbar of the attribute table, this will launch the Expression builder popup, which is not hugely different from the filter popup we worked with above.
 
 
-![Expression builder](screenshots/qgis2_scrn18_expression_builder.png)
+
+
+![Expression builder](screenshots/new_nicar_screenshots/qgis_2_screenshot_22.png)
 
 
 The expression builder is very powerful and enables you to do a lot of complex mathematical operations, not just simple queries. In our case, we want to open up the `Fields and Values` where we can see all the columns in our data. If we double click on the column we want to use, in our case the `NAME` column and similarly to how we wrote the query above to filter our data, we can write a query to select the three most populous counties, Fulton, Gwinnett and Cobb.
 
 
-![Example of an expression to select by](screenshots/qgis2_scrn19_expression_builder_with_expression.png)
+![Example of an expression to select by](screenshots/new_nicar_screenshots/qgis_2_screenshot_23.png)
 
 
 Here is the query we have included in the Expression box:
@@ -226,10 +248,6 @@ Here is the query we have included in the Expression box:
  `"NAME" = 'Fulton' OR "NAME" = 'Gwinnett' OR "NAME" = 'Cobb'` 
 
 If you then click on the `Select features` button at the bottom right of your popup box, the three counties in question should be selected (highlighted in yellow) on your map view. 
-
-
-![Highlighted counties by selection](screenshots/qgis2_scrn20_select_by_expression.png)
-
 
 So now that we have selected our three counties, the fun bit! How can we select only the power plants located here?
 
@@ -239,7 +257,9 @@ With our three counties selected, by going to the Vector menu in our QGIS menu b
  
 
 
-![Selecting by location](screenshots/qgis2_scrn21_select_by_location.png)
+![Selecting by location](screenshots/new_nicar_screenshots/qgis_2_screenshot_24.png)
+
+
 
 
 On making that choice, you get a popup so that you can make the right selection. What we want to do is select features from our power plant point dataset that `are within`  the counties shapefile, so we modify the options in our Select by Location popup to reflect that, as you can see below. 
@@ -247,7 +267,7 @@ On making that choice, you get a popup so that you can make the right selection.
 The last thing is that we we want to ensure that the `Selected features only` option is ticked, so that only the power plants in our selected counties will be selected. We have also selected to create a new selection and then we can press `Run`.
 
 
-![Selecting by location choices](screenshots/qgis2_scrn22_select_by_location_popup_options.png)
+![Selecting by location choices](screenshots/new_nicar_screenshots/qgis_2_screenshot_25.png)
 
 
 What you should now see after clicking Run is that all the power plants in these three counties alone are now highlighted yellow, so you can tell that the have been selected. 
