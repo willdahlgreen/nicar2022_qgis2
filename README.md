@@ -199,7 +199,7 @@ The difference of selecting by location to the filtering we did earlier is that 
 
 So in order to select just the power plants in the Fulton, Gwinnett and Cobb counties we have to first select them in our `georgia_county_population_shapefile.shp` layer. 
 
-Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the select features tool in the QGIS toolbar if you want to select them by eye for example. 
+Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the `select features` tool in the QGIS toolbar if you want to select them by eye for example (as seen below). 
 
 
 ![Selecting features](screenshots/new_nicar_screenshots/qgis_2_screenshot_19.png)
