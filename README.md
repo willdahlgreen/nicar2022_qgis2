@@ -217,11 +217,11 @@ This should open a popup for you with the attributes and data for each feature i
 
 In the Attribute table, clicking on the ID of each feature on the left side will select that polygon in the map. 
 
+If you hold the `(⌘)` button on Mac or `Ctrl` in Windows and then click on the ID you can select more than one polygon at a time.
+
 
 ![Selecting features from the attribute table polygons](screenshots/new_nicar_screenshots/qgis_2_screenshot_20.png)
 
-
-If you hold the `(⌘)` button on Mac or `Ctrl` in Windows and then click on the ID you can select more than one polygon at a time.
 
 Additionally, once we are in the Attribute table popup, we can actually select features in our shapefile by using a query/expression in a similar way to the filtering we did earlier.
 
@@ -230,8 +230,6 @@ Additionally, once we are in the Attribute table popup, we can actually select f
 
 
 If we click on the `Select features by expression` option (highlighted in screenshot above) in the toolbar of the attribute table, this will launch the Expression builder popup, which is not hugely different from the filter popup we worked with above.
-
-
 
 
 ![Expression builder](screenshots/new_nicar_screenshots/qgis_2_screenshot_22.png)
