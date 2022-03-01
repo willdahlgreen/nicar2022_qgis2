@@ -319,19 +319,19 @@ Click the `∈` sign to get to the `Expression String Builder` and when that ope
 Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
 
 
-![atlanta solar filter](Screenshot_2022-03-01_at_14.27.09.png)
+![atlanta solar filter](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.27.09.png)
 
 
 You might also want to add a background to the labels so they can be seen over land areas. Double click on the rule you created in the properties window of the power stations layer, and edit this in `Background`. 
 
 
-![background](Screenshot_2022-03-01_at_14.28.06.png)
+![background](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.28.06.png)
 
 
 You can also draw an outline around the text specifically in the `Buffer` tab.
 
 
-![buffer](Screenshot_2022-03-01_at_14.27.54.png)
+![buffer](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.27.54.png)
 
 
 If the text is quite long you can also go into the `Formatting` section to make labels wrap onto multiple lines after a certain amount of characters.
@@ -347,13 +347,13 @@ Under `label anchor points` select `Top Centre`, this refers to the path the lin
 However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-20.0000`. 
 
 
-![offsetlabels](Screenshot_2022-03-01_at_14.32.51.png)
+![offsetlabels](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.32.51.png)
 
 
 This offsets the label from the point along the trajectory you set in the `callouts` section.
 
 
-![map with labels](Screenshot_2022-03-01_at_14.32.59.png)
+![map with labels](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.32.59.png)
 
 
 ## Tips and tricks when exporting your map
