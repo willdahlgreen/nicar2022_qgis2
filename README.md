@@ -291,16 +291,17 @@ Using the same Georgia counties shapefile as above with our power stations data 
 
 At first you might want to simply add a label for every power station. Do this by double clicking our most recent creation `three_counties_data` (or right click on it and hit `Properties`) and head into the `Labels` tab.
 
-Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
 
 ![How to add labels to your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_28.png)
 
 
-However, this is a bit messy! 
+Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
 
 
 ![How labels will look on your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_29.png)
 
+
+However, this is a bit messy! 
 
 If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for solar power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
 
@@ -312,31 +313,30 @@ If we were doing a story on one type of power plants we’d want to add criteria
 Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `solar`. Click `OK`.
 
 
-![solar filer](screenshots/new_nicar_screenshots/qgis_2_screenshot_31.png)
+![solar filter](screenshots/new_nicar_screenshots/qgis_2_screenshot_31.png)
 
 
 Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
 
 
-[need a screen shot of filtered labels]
-
+![atlanta solar filter](Screenshot_2022-03-01_at_14.27.09.png)
 
 
 You might also want to add a background to the labels so they can be seen over land areas. Double click on the rule you created in the properties window of the power stations layer, and edit this in `Background`. 
 
+
+![background](Screenshot_2022-03-01_at_14.28.06.png)
+
+
 You can also draw an outline around the text specifically in the `Buffer` tab.
 
 
-[need a screen shot of background/buffer labels]
+![buffer](Screenshot_2022-03-01_at_14.27.54.png)
 
 
-If the text is quite long you can also go into the `Formatting` section to make labels wrap onto 2 lines after a certain amount of characters.
+If the text is quite long you can also go into the `Formatting` section to make labels wrap onto multiple lines after a certain amount of characters.
 
-For this try wrapping lines to nine characters.
-
-
-[need a screen shot of manhattan labels]
-
+For this try wrapping lines to nine characters, this moves the label on to three lines.
 
 At the moment the labels are a bit bunched up, so let's try to sort that.
 
@@ -346,7 +346,14 @@ Under `label anchor points` select `Top Centre`, this refers to the path the lin
 
 However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-20.0000`. 
 
+
+![offsetlabels](Screenshot_2022-03-01_at_14.32.51.png)
+
+
 This offsets the label from the point along the trajectory you set in the `callouts` section.
+
+
+![map with labels](Screenshot_2022-03-01_at_14.32.59.png)
 
 
 ## Tips and tricks when exporting your map
