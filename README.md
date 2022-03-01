@@ -367,7 +367,7 @@ Print composer is where you go to get a map ready for publication. It allows you
 Once the print composer window has opened, add the map by clicking ``Add Map` in the toolbar on the side. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
 
 
-![add map](screenshots/new_nicar_screenshots/qgis_2_screenshot_33.png)
+![add map](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.35.12.png)
 
 
 Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
@@ -418,7 +418,8 @@ To add a source, repeat the steps above on creating a title but lower the font s
 To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder.
 
  
-[need to add screenshot of logo]
+![adding logo](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.36.30.png)
+
 
 You can now export the map as an image, under `Layout` > `Export as Image` or as an SVG under `Layout` > `Export as SVG` , although the SVG export function is probably better used at an earlier stage, before all the labels etc have been added, so that you can edit the map in Adobe Illustrator, say, and add the extras using Illustrator itself.
 
