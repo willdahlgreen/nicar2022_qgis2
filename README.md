@@ -344,7 +344,7 @@ In the `callouts` section, in `style` select `Manhattan lines`. This draws a ver
 
 Under `label anchor points` select `Top Centre`, this refers to the path the lines will take.
 
-However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `Around Point` and adjust the `distance to `-20.0000`. 
+However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-20.0000`. 
 
 This offsets the label from the point along the trajectory you set in the `callouts` section.
 
@@ -479,9 +479,6 @@ Success! If you then go back to the main QGIS window, you can see your choroplet
 
 ![new choropleth map](screenshots/new_nicar_screenshots/qgis_2_screenshot_43.png)
 
-
-
-![Choropleth map is coloured by how many solar power plants are in each county](screenshots/qgis2_scrn35_count_points_in_polygons5.png)
 
 ## Add Open Street Map data to your map: Quick OSM
 
