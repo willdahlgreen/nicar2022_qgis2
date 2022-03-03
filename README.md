@@ -403,7 +403,7 @@ To add a title click `Add Label` on the toolbar and draw a text box on the main 
 
 Reposition the map a bit using the steps above to give yourself room for a scale bar and source too. 
 
-To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
+To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Display` section and double clicking the box that says `Font`.
 
 
 ![scale bar](screenshots/new_nicar_screenshots/qgis_2_screenshot_38.png)
@@ -438,21 +438,20 @@ You could export the data and group it by county for example if you have a count
 First up, we will select the solar power plants in the same way we explored above, so if we right click the `power_plants` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `primary_source` column.
 
 
-![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.17.png)
+[need to add screenshot of filter]
 
 
 And if you click `Select features` at the bottom once you have queried by Solar, you should get something like this, which shows the points highlighted in yellow (selected) that are the Solar power plants.
 
 
-![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.43.png)
+[need to add screenshot of selected solar power plants]
 
 
 Once you have selected the power plants you want, the next step to making the choropleth map is to run the `Count Points in Polygon` analysis.
 
 `Vector > Analysis Tools > Count Points in Polygon`
 
-
-![points menu](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.05.png)
+[Add screenshot of points in polygons menu]
 
 
 When we select that option, we get a popup to select the specific layers we want to look at, the layer for the points we want to count and the layer with the polygons that we want the points to fall within. 
@@ -470,7 +469,7 @@ When we click the `Run` button, what this will do is that it will create a new t
 When you go back to your main QGIS window after the count points in polygons analysis finishes, you will get a new layer called `Count` in your layer window. 
 
 
-![Counting points in polygons option](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.53.png)
+[screenshot of count layer]
 
 
 To make your choropleth map, you need to double click on the Count layer and make your map as you would normally do (see QGIS I).
