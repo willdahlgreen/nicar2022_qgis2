@@ -403,7 +403,7 @@ To add a title click `Add Label` on the toolbar and draw a text box on the main 
 
 Reposition the map a bit using the steps above to give yourself room for a scale bar and source too. 
 
-To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
+To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Display` section and double clicking the box that says `Font`.
 
 
 ![scale bar](screenshots/new_nicar_screenshots/qgis_2_screenshot_38.png)
