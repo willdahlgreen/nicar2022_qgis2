@@ -55,7 +55,7 @@ You will find that there will be times when you only want to use a portion of th
 
 For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the highest population (as of 2020), Fulton.
 
-As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that completely fine. 
+As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that's completely fine. 
 
 So make sure you have the counties shapefile selected in the Layers panel, as in the screenshot below. 
 
