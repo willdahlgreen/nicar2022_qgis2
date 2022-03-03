@@ -370,7 +370,13 @@ Once the print composer window has opened, add the map by clicking ``Add Map` in
 ![add map](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.35.12.png)
 
 
-Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
+Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set Map Extent to Match Main Canvas Extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. 
+
+![canvas extent](screenshots/new_nicar_screenashots/Screenshot_2022-03-03_at_15.01.58.png)
+
+By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
+
+I CAN'T FIND THIS
 
 If you want to increase the size of the map within the box you've drawn you can adjust this in `scale` in the `item properties` tab on the right side. Lowering the number will increase the size of the map, and increasing it will do the opposite.
 
