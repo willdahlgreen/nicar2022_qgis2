@@ -419,7 +419,7 @@ To add a source, repeat the steps above on creating a title but lower the font s
 ![Adding a source to the bottom of your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_40.png)
 
 
-To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder.
+To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder or here: https://www.dropbox.com/sh/woei4sxd4wwdcta/AADcnj6lqZ0HMeZkYkb2WDFpa?dl=0
 
  
 ![adding logo](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.36.30.png)
