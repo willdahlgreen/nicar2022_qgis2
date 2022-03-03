@@ -438,20 +438,20 @@ You could export the data and group it by county for example if you have a count
 First up, we will select the solar power plants in the same way we explored above, so if we right click the `power_plants` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `primary_source` column.
 
 
-[need to add screenshot of filter]
+![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.17.png)
 
 
 And if you click `Select features` at the bottom once you have queried by Solar, you should get something like this, which shows the points highlighted in yellow (selected) that are the Solar power plants.
 
 
-[need to add screenshot of selected solar power plants]
+![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.43.png)
 
 
 Once you have selected the power plants you want, the next step to making the choropleth map is to run the `Count Points in Polygon` analysis.
 
 `Vector > Analysis Tools > Count Points in Polygon`
 
-[Add screenshot of points in polygons menu]
+![points menu](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.05.png)
 
 
 When we select that option, we get a popup to select the specific layers we want to look at, the layer for the points we want to count and the layer with the polygons that we want the points to fall within. 
@@ -469,7 +469,7 @@ When we click the `Run` button, what this will do is that it will create a new t
 When you go back to your main QGIS window after the count points in polygons analysis finishes, you will get a new layer called `Count` in your layer window. 
 
 
-[screenshot of count layer]
+![Counting points in polygons option](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.53.png)
 
 
 To make your choropleth map, you need to double click on the Count layer and make your map as you would normally do (see QGIS I).
