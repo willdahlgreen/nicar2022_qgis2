@@ -316,7 +316,7 @@ Click the `∈` sign to get to the `Expression String Builder` and when that ope
 ![solar filter](screenshots/new_nicar_screenshots/qgis_2_screenshot_31.png)
 
 
-Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
+Make sure you've got `Value` set to `utility_name` and click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
 
 
 ![atlanta solar filter](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.27.09.png)
