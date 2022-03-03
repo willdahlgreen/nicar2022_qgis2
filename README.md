@@ -372,7 +372,7 @@ Once the print composer window has opened, add the map by clicking ``Add Map` in
 
 Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set Map Extent to Match Main Canvas Extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. 
 
-<img src="https://github.com/willdahlgreen/nicar2022_qgis2/blob/RobertEngland-patch-1/screenshots/new_nicar_screenshots/Screenshot_2022-03-03_at_15.01.58.png" width = "100">
+<img src="https://github.com/willdahlgreen/nicar2022_qgis2/blob/RobertEngland-patch-1/screenshots/new_nicar_screenshots/Screenshot_2022-03-03_at_15.01.58.png" width = "300">
 
 By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
 
