@@ -30,8 +30,7 @@ For this tutorial, we will go through the following:
 The data we are using in this workshop can be found and download here:
 https://www.dropbox.com/sh/woei4sxd4wwdcta/AADcnj6lqZ0HMeZkYkb2WDFpa?dl=0
 
-You can go through the introduction class, QGIS I, here:
-[bit.ly/qgis1_nicar](https://docs.google.com/document/d/1Rgieda2-8pV7cz9bWc_DHJR3vtNPQUmknbld18_pzeU/edit)  
+You can go through the introduction class, QGIS I, [here](https://docs.google.com/document/d/1Rgieda2-8pV7cz9bWc_DHJR3vtNPQUmknbld18_pzeU/edit)  
 
 ## Filtering shapefiles
 
