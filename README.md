@@ -7,7 +7,9 @@
 
 ## What are we going to cover?
 
-This workshop should build on your existing knowledge of QGIS and show you how to filter and analyse geographic datasets using queries, before familiarising yourself with exporting the maps you have created using the print composer. 
+This workshop should build on your existing knowledge of QGIS and show you how to filter and analyse geographic datasets using queries, before familiarising yourself with exporting the maps you have created using the print composer.
+
+To explore these techniques we're going to be working with a dataset from the Department for Energy data on Power Plants in Georgia, as well as the county level shapefiles and cities data you may have seen in the QGIS I workshop.
 
 This class is ideal for those who attended the QGIS I workshop or already know the basics of visualising geographic data in QGIS. We will cover techniques like writing queries to filter your data, aggregating data for easier analysis, adding labels to your map before exporting as well as using Open Street Map data in QGIS. 
 
@@ -26,189 +28,224 @@ For this tutorial, we will go through the following:
 ### What data are we using?
 
 The data we are using in this workshop can be found and download here:
-https://www.dropbox.com/sh/tx1wpb5gr9znvxx/AABq53sdjrt4BArTUzn7WWh8a?dl=0
+https://www.dropbox.com/sh/woei4sxd4wwdcta/AADcnj6lqZ0HMeZkYkb2WDFpa?dl=0
 
 You can go through the introduction class, QGIS I, here:
-[bit.ly/qgis1_nicar](https://docs.google.com/document/d/13LMw_nSkbels9-Y2zQZKbyoZtfGnAE7dJLZnCuaSnJY/edit)  
+[bit.ly/qgis1_nicar](https://docs.google.com/document/d/1Rgieda2-8pV7cz9bWc_DHJR3vtNPQUmknbld18_pzeU/edit)  
 
 ## Filtering shapefiles
 
-You will find that there will be times when you only want to use a portion of the data included in your shapefile. 
+For this first exercise, let's load in our counties `georgia_county_population_shapefile.shp` shapefile into QGIS. 
 
-For example in our case, we have a shapefile with all counties in California (`CA_Counties_TIGER2016.shp`), but say we just want to look at Orange County, where we are currently located. 
+You can do this either by dragging the `.shp` file into QGIS or by going to the QGIS Menu bar, selecting `Open data source manager > Vector`, then browse to the shapefile in the folder of the same name, which is inside the `geography` folder.
 
-So first up you should load in our `CA_Counties_TIGER2016.shp` shapefile into QGIS. You can do this either by dragging the `.shp` file into QGIS or by going to `Layer > Add Layer > Add Vector Layer` from the QGIS Menu bar up top. 
 
-![Adding a shapefile into QGIS](screenshots/qgis2_scrn1_adding_shapefile_into_qgis.png) 
+![Adding a shapefile into QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_1.png) 
 
-At this stage, you should also bring in your power plant dataset (`California_Power_Plant.shp`) that you worked with in [the earlier QGIS I tutorial](https://docs.google.com/document/d/13LMw_nSkbels9-Y2zQZKbyoZtfGnAE7dJLZnCuaSnJY/edit) as well. This shapefile includes point data for each power plant in California.
+![Adding a shapefile into QGIS pt 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_2.png) 
 
-As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that completely fine. 
+
+Let's then give it a bit of contrast by double-clicking the shapefile and in the `symbology` tab selecting `gray 3 fill`.
+
+
+![Adding a shapefile into QGIS pt 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_3.png) 
+
+
+You will find that there will be times when you only want to use a portion of the data included in your shapefile.
+
+For example in our case, we have a shapefile with all counties in Georgia (`georgia_county_population_shapefile.shp`), but say we just want to look at the county with the highest population (as of 2020), Fulton.
+
+As with most things in QGIS, there is more than  one single way to filter your data, so if you come across another way or are used to working in a different process, then that's completely fine. 
 
 So make sure you have the counties shapefile selected in the Layers panel, as in the screenshot below. 
 
 
-![Selecting a shapefile in the layers panel](screenshots/qgis2_scrn2_having_layer_selected_in_layers_panel.png)
+![Selecting a shapefile in the layers panel](screenshots/new_nicar_screenshots/qgis_2_screenshot_4.png)
 
 
-Once you have that, then go to the `Layer` menu in the main QGIS menu bar and click on the `Filter` option. 
+Once you have that, right click on the shapefile and click on the `Filter` option. 
 
 
-![Getting to the filter option in QGIS](screenshots/qgis2_scrn3_filter_option_menu.png)
+![Getting to the filter option in QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_5.png)
 
 
-The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.  
+The shortcut for this is `(⌘)F` in mac or `Ctrl+F`  in Windows.
 
 Once you select the Filter option, you should get a popup screen that looks something like this. 
 
-![The Filter Query Builder in QGIS](screenshots/qgis2_scrn4_filter_query_builder.png)
+
+![The Filter Query Builder in QGIS](screenshots/new_nicar_screenshots/qgis_2_screenshot_6.png)
+
 
 This Query Builder is a powerful tool and something experienced QGIS users will often use to query and filter as they explore their data before making a map.
 
 The `Fields` column essentially displays all the columns in your shapefile data, if it helps to think about a shapefile as an Excel spreadsheet, which you can see if you right click on your layer and click `Open Attribute table` . This is the data that comes for each feature in your shapefile layer. 
 
-But you can look at the data that each Field contains directly in this Query Builder. As mentioned earlier, what we want to do is filter the counties shapefile so that we are seeing just ‘Orange’ county and disregard all others. So we want to find the field with the county names and select Orange county. 
 
-Looking at all the Fields, a safe bet to filter by name would be using the `NAME` column. So in our `Fields` column, lets select and double click the `NAME` option. 
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
 
 
-![Filtering by name](screenshots/qgis2_scrn5_filter_by_name.png)
+But you can look at the data that each Field contains directly in this Query Builder. As mentioned earlier, what we want to do is filter the counties shapefile so that we are seeing just ‘Fulton’ county and disregard all others. So we want to find the field with the county names and select Fulton county. 
 
+Looking at all the Fields, a safe bet to filter by name would be using the `NAME` column. 
+
+In our `Fields` column, lets select and double click the `NAME` option. 
+
+![Filtering by name](screenshots/new_nicar_screenshots/qgis_2_screenshot_8.png)
 
 So what this does, as you can see above, is that it populates the space where we are meant to write our query with the text `"NAME"`. Now if we click on the `All` button just below the `Values` block, it will populate the `Values` section with the name of each of the counties that are included in our shapefile. 
 
 As the text in the block below the title `Provider specific filter expression` is essentially a space for `SQL` statements, we need to have an operator after our `"NAME"`. So after name, we should click on the `=` operator. 
 
-So the last step is to find Orange county in our list of county names. It looks like the names are in alphabetical order, so we could literally scroll down to find Orange county or we could type it in the values box. Once we have found it, if we double click it, it will populate the query section and our query should be now complete. 
+So the last step is to find Fulton county in our list of county names. It looks like the names are in alphabetical order, so we could literally scroll down to find Fulton county or we could type it in the values box. Once we have found it, if we double click it, it will populate the query section and our query should be now complete. 
 
 
-![Querying shapefile](screenshots/qgis2_scrn6_query_builder_orange_county.png)
+![Filtering by name_2](screenshots/new_nicar_screenshots/qgis_2_screenshot_9.png)
 
 
-Before you click on OK and run this filter query, you can actually test how many features (in our cases counties) this query will capture and check that this is the result you expected. 
+Before you click on OK and run this filter query, you can actually test how many features (in our cases counties) this query will capture and check that this is the result you expected.
 
-To do this, just click the `Test` button at the bottom left of your Query Builder window. 
+To do this, just click the `Test` button at the bottom left of your Query Builder window.
 
-This is the reply you should get - which is exactly what we want, that our result is one county, `Orange` county! 
+This is the reply you should get - which is exactly what we want, that our result is one county, `Fulton` county!
 
-
-![Testing query](screenshots/qgis2_scrn7_test_filter.png)
-
-
-And if we now do press OK in our Query Builder,  our counties layer should now display just Orange county. 
+And if we now do press OK in our Query Builder,  our counties layer should now display just Fulton county.
 
 
-![Result following query](screenshots/qgis2_scrn8_orange_county_layer_map.png)
+![Result following query](screenshots/new_nicar_screenshots/qgis_2_screenshot_10.png)
 
 
 Success!
 
-Filtering in QGIS is a very powerful tool as it enables you to run a whole host of queries on your data, not just select a feature by name as we have done above. With discrete data, you can filter by category or with numeric data you can filter by any mathematical operations or values. 
+Filtering in QGIS is a very powerful tool as it enables you to run a whole host of queries on your data, not just select a feature by name as we have done above. With discrete data, you can filter by category or with numeric data you can filter by any mathematical operations or values.
 
-So looking at our other dataset, the power plants dataset, it has a number of columns with the different characteristics of each power plant. For example, there is a **Status** column which describes whether the power plant is is operational, retired, on standby or shutdown as well as as a column describing the type of fuel produced power plant, **General_Fu.** There are also numeric columns, such as the **MW** column that details the capacity of each plant in megawatts and the **Online_Year** column with the year that each plant came online. 
+This technique works just as well with datasets which use polygons or points that we can layer on top of our shapefile, which is what we'll show you now.
+
+Firstly, click the filter button you can see by our shapefile, then select `clear` in the Query Builder, that'll give us back the counties we filtered out previously.
+
+
+![reset shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_11.png)
+
+
+Now bring in the power plant dataset (`power_plants.csv`) by going to the QGIS Menu bar, selecting `Open data source manager > Delimited Text` and browsing to it in the `data` folder. 
+
+
+![open point data](screenshots/new_nicar_screenshots/qgis_2_screenshot_12.png)
+
+
+This includes point data for power plants in Georgia by energy source. It includes all plants with a combined total capacity of 1 megawatt or more that are operating, on standby, or are temporarily or permanently out of service as of August 2021.
+
+It should automatically populate the X and Y field, but if not you'll need to fill these with longitude and latitude.
+
+
+![view point data](screenshots/new_nicar_screenshots/qgis_2_screenshot_13.png)
+
+
+Looking at this dataset using `Open Attribute table` again, it has a number of columns with the different characteristics of each power plant. For example, there is a **primary_source** column which describes the type of power plant it is (solar, nuclear etc), as well as as a column describing whether they are a utility company or organisation, or an independant power producer, **sector_name**. 
+
+
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
+
+
+
+![open attribute table 2](screenshots/new_nicar_screenshots/qgis_2_screenshot_15.png)
+
+
+
+There are also numeric columns, such as the **total_MW** column that details the capacity of each plant in megawatts, and the type of energy being produced is broken down in subsequent columns.
 
 So given what we know about the data, we can run a more complex filter query and can choose to show power plants based on the following criteria:
 
-- Currently operational
+- run by utility companies (Electric utility)
 - Solar or Solar Thermal
 - Produce above 10MW 
-- Came online after 2010
 
-Before we write and run the query needed to filter the data, we can see that the full dataset has a total of 1830 power plants in our data.
-
-
-![Checking how many entries in our data before running the complex query](screenshots/qgis2_scrn9_pre_complex_query.png)
+Here is the query we will run:  
 
 
-But when we run our query to include all power plants that satisfy the criteria set above, we get just 190 power plants and a map that looks much less crowded - and potentially more meaningful to us depending on the story we are trying to tell or the data we want to investigate. 
+`("sector_name" = 'Electric Utility')  AND ("primary_source" = 'solar')  AND ("total_mw" > 10)`
 
 
-![Checking how many entries in our data after running the complex query](screenshots/qgis2_scrn10_post_complex_query.png)
+
+![advanced query filter](screenshots/new_nicar_screenshots/qgis_2_screenshot_16.png)
 
 
-Here is the query we run:  
+
+When we run our query to include all power plants that satisfy the criteria set above, we get just seven power plants and a map that looks much less crowded - and potentially more meaningful to us depending on the story we are trying to tell or the data we want to investigate.
+
+Now if we wanted to actually save out this filtered selection as a new file and only work with the selected data so that we do not have to load and import the entire dataset, all you need to do is right click on the layer while it is filtered and click `Export > Save Features As…` 
 
 
-`("General_Fu" = 'Solar' OR "General_Fu" = 'Solar Thermal') AND ("MW" > 10) AND ("Status" = 'Operating')`
-
-Now if we wanted to actually save out this filtered selection as a new file and only work with the selected data so that we do not have to load and import the entire dataset with almost 2,000 rows, then all you need to do is right click on the layer while it is filtered and click `Export > Save Features As…` 
-
-
-![Saving filtered shapefile](screenshots/qgis2_scrn11_save_filtered_layer.png)
+![Saving filtered shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_17.png)
 
 
 What that will then do is give you a new popup screen where you can set your new file name, where you want to save it as well as the file format, so depending on what you plan to do with it, you can save it as a CSV a Shapefile, a KML etc. 
 
 
-![Choosing the format you want to save your filtered file as](screenshots/qgis2_scrn12_save_filtered_layer_choose_format.png)
+![Saving filtered shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_18.png)
 
 
-So now you should be able to not only filter geographic data you have brought into QGIS but also do so using a complex query to filter on a number of criteria, before saving out your filtered dataset into an entire new file to work with. 
+So now you should be able to not only filter geographic data you have brought into QGIS but also do so using a complex query to filter on a number of criteria, before saving out your filtered dataset into an entire new file to work with.
 
 
 ## Selecting data by location 
 
-Another thing you can use QGIS for is to select data by its geographic location. 
 
-So say we want to select power plants located in a few select California counties.
+Another thing you can use QGIS for is to select data by its geographic location.
 
-The difference of selecting by location to the filtering we did earlier is that we are selecting data in **one dataset**, the power plant data, based on the geographic location which comes from **another dataset**, the counties shapefile. 
+So say we want to select power plants located in a few select Georgia counties.
 
-So in order to select just the power plants in Los Angeles county, Orange county and San Bernadino county, we have to first select these three counties in our `CA_Counties_TIGER2016` layer. 
+The difference of selecting by location to the filtering we did earlier is that we are selecting data in **one dataset**, the power plant data, based on the geographic location which comes from **another dataset**, the county shapefile. 
 
-Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the select features tool in the QGIS toolbar if you want to select them by eye for example. 
+So in order to select just the power plants in the Fulton, Gwinnett and Cobb counties we have to first select them in our `georgia_county_population_shapefile.shp` layer. 
+
+Now there are a number of different ways to select features from a layer in QGIS. You can select them manually, or by drawing a shape around them from the `select features` tool in the QGIS toolbar if you want to select them by eye for example (as seen below). 
 
 
-![Selecting features](screenshots/qgis2_scrn13_select_features.png)
+![Selecting features](screenshots/new_nicar_screenshots/qgis_2_screenshot_19.png)
 
 
 Another way is by opening the attribute table of the shapefile and ‘look under the hood’ so to speak. 
 
-We can do this by right clicking on our shapefile and selected the `Open Attribute Table` option. 
+We can do this by right clicking on our shapefile and selected the `Open Attribute Table` option the way we did it earlier, like so:
 
 
-![Open the layer's attribute table](screenshots/qgis2_scrn14_open_attribute_table.png)
+![open attribute table](screenshots/new_nicar_screenshots/qgis_2_screenshot_14.png)
 
 
-This should open a popup for you with the attributes and data for each feature in our `CA_Counties_TIGER2016.shp` shapefile. 
+This should open a popup for you with the attributes and data for each feature in our `georgia_county_population_shapefile.shp` shapefile. 
 
 In the Attribute table, clicking on the ID of each feature on the left side will select that polygon in the map. 
-
-
-![Selecting features from the attribute table](screenshots/qgis2_scrn15_select_attribute_table.png)
-
 
 If you hold the `(⌘)` button on Mac or `Ctrl` in Windows and then click on the ID you can select more than one polygon at a time.
 
 
-![Multiple feature selection](screenshots/qgis2_scrn16_multiple_selection.png)
+![Selecting features from the attribute table polygons](screenshots/new_nicar_screenshots/qgis_2_screenshot_20.png)
 
 
 Additionally, once we are in the Attribute table popup, we can actually select features in our shapefile by using a query/expression in a similar way to the filtering we did earlier.
 
 
-![Selecting features by expression](screenshots/qgis2_scrn17_select_by_expression.png)
+![Selecting features by expression](screenshots/new_nicar_screenshots/qgis_2_screenshot_21.png)
 
 
 If we click on the `Select features by expression` option (highlighted in screenshot above) in the toolbar of the attribute table, this will launch the Expression builder popup, which is not hugely different from the filter popup we worked with above.
 
-![Expression builder](screenshots/qgis2_scrn18_expression_builder.png)
 
-The expression builder is very powerful and enables you to do a lot of complex mathematical operations, not just simple queries. In our case, we want to open up the `Fields and Values` where we can see all the columns in our data. If we double click on the column we want to use, in our case the `NAME` column and similarly to how we wrote the query above to filter our data, we can write a query to select the three counties, Orange county. Los Angeles county and San Bernadino county. 
+![Expression builder](screenshots/new_nicar_screenshots/qgis_2_screenshot_22.png)
 
 
-![Example of an expression to select by](screenshots/qgis2_scrn19_expression_builder_with_expression.png)
+The expression builder is very powerful and enables you to do a lot of complex mathematical operations, not just simple queries. In our case, we want to open up the `Fields and Values` where we can see all the columns in our data. If we double click on the column we want to use, in our case the `NAME` column and similarly to how we wrote the query above to filter our data, we can write a query to select the three most populous counties, Fulton, Gwinnett and Cobb.
+
+
+![Example of an expression to select by](screenshots/new_nicar_screenshots/qgis_2_screenshot_23.png)
 
 
 Here is the query we have included in the Expression box:
 
- `"NAME" = 'Los Angeles' OR "NAME" = 'Orange' OR "NAME" = 'San Bernardino'` 
+ `"NAME" = 'Fulton' OR "NAME" = 'Gwinnett' OR "NAME" = 'Cobb'` 
 
 If you then click on the `Select features` button at the bottom right of your popup box, the three counties in question should be selected (highlighted in yellow) on your map view. 
-
-
-![Highlighted counties by selection](screenshots/qgis2_scrn20_select_by_expression.png)
-
 
 So now that we have selected our three counties, the fun bit! How can we select only the power plants located here?
 
@@ -218,146 +255,214 @@ With our three counties selected, by going to the Vector menu in our QGIS menu b
  
 
 
-![Selecting by location](screenshots/qgis2_scrn21_select_by_location.png)
+![Selecting by location](screenshots/new_nicar_screenshots/qgis_2_screenshot_24.png)
+
+
 
 
 On making that choice, you get a popup so that you can make the right selection. What we want to do is select features from our power plant point dataset that `are within`  the counties shapefile, so we modify the options in our Select by Location popup to reflect that, as you can see below. 
 
-The last thing is that we we want to ensure that the `Selected features only` option is ticked, so that only the power plants in our selected states of Los Angeles, Orange county and San Bernadino will be selected. We have also selected to create a new selection and then we can press `Run`.
+The last thing is that we we want to ensure that the `Selected features only` option is ticked, so that only the power plants in our selected counties will be selected. We have also selected to create a new selection and then we can press `Run`.
 
 
-![Selecting by location choices](screenshots/qgis2_scrn22_select_by_location_popup_options.png)
+![Selecting by location choices](screenshots/new_nicar_screenshots/qgis_2_screenshot_25.png)
 
 
 What you should now see after clicking Run is that all the power plants in these three counties alone are now highlighted yellow, so you can tell that the have been selected. 
 
-In order to save these in a new file, whether you want to save it out as a Geojson, shapefile or CSV, all you need to do is right click on the `California_Power_Plant` layer, got to `Export > Save Selected Features As…`. Make sure you click on save **selected** features, otherwise it will just save all the features (points) in the dataset. 
+In order to save these in a new file, whether you want to save it out as a Geojson, shapefile or CSV, all you need to do is right click on the `power_plants` layer, got to `Export > Save Selected Features As…`. Make sure you click on save **selected** features, otherwise it will just save all the features (points) in the dataset. 
 
-![Saving selected features to create a new shapefile](screenshots/qgis2_scrn23_save_selected_features.png)
+
+![Saving selected features to create a new shapefile](screenshots/new_nicar_screenshots/qgis_2_screenshot_26.png)
+
+
+Give the new shapefile a distinctive name, we've gone for `three_counties_data`.
 
 
 Awesome, you have now created a new shapefile with just the power plants that are in those three counties!
 
 
-![Just the power plants in our selected counties](screenshots/qgis2_scrn24_power_plants_selected_counties.png)
+![Just the power plants in our selected counties](screenshots/new_nicar_screenshots/qgis_2_screenshot_27.png)
 
 
 ## Adding labels to your map
 
-Using the same California states shapefile as above with our power stations data on top, we can start adding some labels. 
+Using the same Georgia counties shapefile as above with our power stations data on top, we can start adding some labels. 
 
-At first you might want to simply add a label for every power station. Do this by double clicking the power plants layer (or right click and hit `Properties`) and head into the `Labels` tab on the left. Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
-
-![How to add labels to your map](screenshots/qgis2_scrn36_labelling1.png)
+At first you might want to simply add a label for every power station. Do this by double clicking our most recent creation `three_counties_data` (or right click on it and hit `Properties`) and head into the `Labels` tab.
 
 
-However, this will get a bit unwieldy! 
-
-![How labels will look on your map](screenshots/qgis2_scrn37_labelling2.png)
+![How to add labels to your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_28.png)
 
 
-If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for coal power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
-
-![Rule-based labelling](screenshots/qgis2_scrn38_labelling3.png)
+Select `Single labels` at the top and then choose the column in the data that should generate the labels: `Plant_Name`. You can also change the font style and size in here. Click `OK`.
 
 
-
-Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `General_Fu`. This will place it into the expression builder but we also have to set what value `General_Fu` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `Coal`. Click `OK`.
-
-![](screenshots/qgis2_scrn_label_coal_filter.png)
+![How labels will look on your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_29.png)
 
 
+However, this is a bit messy! 
 
-Click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
+If we were doing a story on one type of power plants we’d want to add criteria for our labels, by displaying them just for solar power plants, say. To do this go back into your layer properties and in the labels tab choose `Rule-based labeling` at the top. Add a new rule by clicking the `+` sign in the bottom left, then in the `Edit rule` window that pops up automatically (or by double clicking the rule you made) give your rule a name. 
 
-![Filtered labels on your map](screenshots/qgis2_scrn40_labelling5.png)
+
+![Rule-based labelling](screenshots/new_nicar_screenshots/qgis_2_screenshot_30.png)
+
+
+
+Click the `∈` sign to get to the `Expression String Builder` and when that opens expand the `Fields and Values` section and double click the column we want to use as a criteria: `primary_so`. This will place it into the expression builder but we also have to set what value `primary_so` must be equal to in order to display a label. Click `all unique` and you’ll see the unique values of that column. Press or type the equals sign where the expression is being written and then double click the value we want: `solar`. Click `OK`.
+
+
+![solar filter](screenshots/new_nicar_screenshots/qgis_2_screenshot_31.png)
+
+
+Make sure you've got `Value` set to `plant_name` and click `OK` to get out of the other windows too and you should see your filtered labels on the map: 
+
+
+![atlanta solar filter](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.27.09.png)
 
 
 You might also want to add a background to the labels so they can be seen over land areas. Double click on the rule you created in the properties window of the power stations layer, and edit this in `Background`. 
 
-![Adding a background to your labels](screenshots/qgis2_scrn41_labelling6.png)
+
+![background](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.28.06.png)
 
 
-You can also go into the `Formatting` section to make labels wrap onto 2 lines after a certain amount of characters.
-
-![](screenshots/qgis2_scrn42_labelling7.png)
+You can also draw an outline around the text specifically in the `Buffer` tab.
 
 
-You can connect points with labels via callout lines, but you need to install another plugin such as EasyCustomLabeling.
+![buffer](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.27.54.png)
+
+
+If the text is quite long you can also go into the `Formatting` section to make labels wrap onto multiple lines after a certain amount of characters.
+
+For this try wrapping lines to nine characters, this moves the label on to three lines.
+
+Also, our labels are quite small when we zoom out to state level, so let's increase the font size in the `text` tab. 14 works for this exercise.
+
+At the moment the labels are a bit bunched up, so let's try to sort that.
+
+In the `callouts` section, in `style` select `Manhattan lines`. This draws a vertical and horizontal line to the point.
+
+Under `label anchor points` select `Top Centre`, this refers to the path the lines will take.
+
+However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-30.0000`. 
+
+
+![offsetlabels](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.32.51.png)
+
+
+This offsets the label from the point along the trajectory you set in the `callouts` section.
+
+
+![map with labels](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.32.59.png)
+
 
 ## Tips and tricks when exporting your map
 
 Print composer is where you go to get a map ready for publication. It allows you to add titles, scales, sources and then export them as a SVG or PNG. Using the power stations map that we labelled above, find `New Print Layout` under `Project` and in the box that pops up give it a name. Naming the print layout allows you to open it up again when the project is saved.
 
-Once the print composer window has opened, add the map by clicking `Add item` > `Add Map`. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set to map canvas extent` in the `Item properties` toolbar on the right to get the print composer to reflect your changes. By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
 
-![Your print composer](screenshots/qgis2_scrn43_printcomposer1.png)
-
-
-To add a title click `Add Item` > `Add Label` and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
-
-![Formatting the text in your print composer](screenshots/qgis2_scrn44_printcomposer2.png)
+![Your print composer](screenshots/new_nicar_screenshots/qgis_2_screenshot_32.png)
 
 
-Reposition the map a bit using the steps above to give yourself room for a scale bar and source at the bottom. 
+Once the print composer window has opened, add the map by clicking ``Add Map` in the toolbar on the side. Draw a box on your canvas and the map, as it appears back in the main QGIS window, will be added. 
 
-To add the scale bar, click `Add Item` >  `Add Scale Bar` and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Fonts and colors` section and double clicking the box that says `Font`.
 
-![](screenshots/qgis2_scrn45_printcomposer3.png)
+![add map](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.35.12.png)
 
+
+Try and get your map to look how you want it to in the main QGIS window, then come back to the print composer and click `Set Map Extent to Match Main Canvas Extent` in the `Item properties` toolbar on the right. This will get the print composer to reflect your changes. 
+
+<img src="https://github.com/willdahlgreen/nicar2022_qgis2/blob/RobertEngland-patch-1/screenshots/new_nicar_screenshots/Screenshot_2022-03-03_at_15.01.58.png" width = "300">
+
+By default moving the box with the map in will move the box but not its contents. To move the contents, click `Move item content` in the toolbar on the left.
+
+If you want to increase the size of the map within the box you've drawn you can adjust this in `scale` in the `item properties` tab on the right side. Lowering the number will increase the size of the map, and increasing it will do the opposite.
+
+
+![scale up](screenshots/new_nicar_screenshots/qgis_2_screenshot_34.png)
+
+
+If you want to manually move the map around the box, you can do this by selecting the `Interactively edit map extent` option in the same tab.
+
+
+![move map around](screenshots/new_nicar_screenshots/qgis_2_screenshot_35.png)
+
+
+The default tends to be a landscape map, but sometimes you'll want more of a portrait image. To adjust this, right click on a blank area of the layout and select `page properties`.
+
+Here you can adjust the width and height of the page.
+
+To add a title click `Add Label` on the toolbar and draw a text box on the main canvas. Make sure you have selected the text box (select items by clicking the arrow button on the left hand toolbar) and then to edit the text write your title in the `Main properties` section of the label’s `Item Properties` on the right. To change the font size or style click the `Font` box under `Appearance` and a `Text Format` box will appear.
+
+
+![Adding a label to map](screenshots/new_nicar_screenshots/qgis_2_screenshot_36.png)
+
+
+![Formatting the text in print composer](screenshots/new_nicar_screenshots/qgis_2_screenshot_37.png)
+
+
+Reposition the map a bit using the steps above to give yourself room for a scale bar and source too. 
+
+To add the scale bar, click `Add Scale Bar` from the toolbar and drag it to where you want it. Once it’s selected you can change the number of points by editing the settings in `Segments` on the right toolbar (making these `left 0` and `right 4` will give you 0-400 with 4 intervals). You can also change the font by expanding the `Display` section and double clicking the box that says `Font`.
+
+
+![scale bar](screenshots/new_nicar_screenshots/qgis_2_screenshot_38.png)
 
 
 To add a source, repeat the steps above on creating a title but lower the font size a bit. Move it to the bottom and then draw a line above it by clicking `Add Item` > `Add Shape` > `Add Rectangle`. Drag this across the width of the canvas and make sure it’s not got any depth, so it looks like a line rather than a box. If you find it hard to select the line using the cursor once it’s created because it’s so thin, select the `<rectangle>`  item it in the `Items` panel in the top right instead; from there you can set the style under the `Main properties` section on the right.
 
-![Adding a source to the bottom of your map](screenshots/qgis2_scrn46_printcomposer4.png)
+ 
+ 
+![Adding a line to the bottom of your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_39.png)
 
 
+![Adding a source to the bottom of your map](screenshots/new_nicar_screenshots/qgis_2_screenshot_40.png)
 
-To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Image source` section of `Main Properties` on the right browse to the location of your picture, which is in the screenshots folder. Insert the image and then drag it to the bottom right of the map.
 
-![Adding a logo to your map](screenshots/qgis2_scrn47_printcomposer5.png)
+To add a logo to your map click `Add Item` > `Add Picture`, draw a box where you want it and then in the `Picture` section of `Item Properties` on the right browse to the location of your picture. Select `Raster image` and use the browser to navigate to the IRE logo in the `other resources` folder or here: https://www.dropbox.com/sh/woei4sxd4wwdcta/AADcnj6lqZ0HMeZkYkb2WDFpa?dl=0
+
+ 
+![adding logo](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.36.30.png)
 
 
 You can now export the map as an image, under `Layout` > `Export as Image` or as an SVG under `Layout` > `Export as SVG` , although the SVG export function is probably better used at an earlier stage, before all the labels etc have been added, so that you can edit the map in Adobe Illustrator, say, and add the extras using Illustrator itself.
 
-
+ 
 ## Aggregating data: Points in polygons
 
-What if you have a lot of point data, and you want to actually make a choropleth map of the number of points in each area? For example in our case, we want to make a map displaying the number of **solar** **power plants** in each of California’s counties?
+ 
+What if you have a lot of point data, and you want to actually make a choropleth map of the number of points in each area? For example in our case, we want to make a map displaying the number of **solar** **power plants** in each of Georgia’s counties?
 
 You could export the data and group it by county for example if you have a counties column in your dataset, or if you don’t you could geocode the data to find the county each point lies within, but we can count how many points are located within each polygon easily within QGIS with a `Count points in polygons` spatial analysis. 
 
-First up, we will select the solar power plants in the same way we explored above, so if we right click the `California_Power_Plant` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `General_Fu` column.
+First up, we will select the solar power plants in the same way we explored above, so if we right click the `power_plants` layer and select `Open Attribute Table` and then click the `Select features by expression` icon at top of the toolbar, we can write a query to filter just the plants which have `Solar` in the `primary_source` column.
 
 
-![Opening the attribute table](screenshots/qgis2_scrn25_open_attribute_table.png)
-
-
-
-![Filtering just for solar plants](screenshots/qgis2_scrn28_filter_solar2.png)
+![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.17.png)
 
 
 And if you click `Select features` at the bottom once you have queried by Solar, you should get something like this, which shows the points highlighted in yellow (selected) that are the Solar power plants.
 
 
-![Only selected power plants (solar) are highlighted](screenshots/qgis2_scrn29_filter_solar3.png)
+![adding filter for solar](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.38.43.png)
 
 
 Once you have selected the power plants you want, the next step to making the choropleth map is to run the `Count Points in Polygon` analysis.
 
 `Vector > Analysis Tools > Count Points in Polygon`
 
-
-![Counting points in polygons option](screenshots/qgis2_scrn30a_count_points_in_polygons.png)
+![points menu](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.05.png)
 
 
 When we select that option, we get a popup to select the specific layers we want to look at, the layer for the points we want to count and the layer with the polygons that we want the points to fall within. 
 
+So for our data, the points layer is the `power_plants` and the polygons layer is the `georgia_county_shapefile_population`. The Count field name is automatically filled in for us with the name `NUMPOINTS`, you can change that if you want to. 
 
-![Counting points in polygons popup](screenshots/qgis2_scrn30b_count_points_in_polygons1.png)
 
+![Counting points in polygons option](screenshots/new_nicar_screenshots/qgis_2_screenshot_41.png)
 
-So for our data, the points layer is the `California_Power_Plant` and the polygons layer is the `CA_Counties_TIGER2016`. The Count field name is automatically filled in for us with the name `NUMPOINTS`, you can change that if you want to. 
 
 Remember given we want to see just the solar power plants, which we selected above, we need to make sure that `Selected features only` is ticked. 
 
@@ -366,33 +471,28 @@ When we click the `Run` button, what this will do is that it will create a new t
 When you go back to your main QGIS window after the count points in polygons analysis finishes, you will get a new layer called `Count` in your layer window. 
 
 
-![New shapefile with counts for each polygon created](screenshots/qgis2_scrn31_count_points_in_polygons2.png)
+![Counting points in polygons option](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.39.53.png)
 
 
 To make your choropleth map, you need to double click on the Count layer and make your map as you would normally do (see QGIS I).
 
 `Double click Count layer > Symbology > Graduated`  
 
-
-![Making a choropleth map with this new data](screenshots/qgis2_scrn32_count_points_in_polygons3.png)
-
-
 Once you select the Graduated option, you can then pick the column which contains the data you want to use for your choropleth map, which we know in our case is the column called `NUMPOINTS`. 
 
 You can then choose the mode you want - have gone for Equal Interval here - and picked five classes, but what you choose is up to you!
 
-![Picking your options to create a choropleth map](screenshots/qgis2_scrn33_count_points_in_polygons3.png)
-
-
 Once you click `Classify`, you will get the different classes and colours QGIS has selected for your map based on the input options.
 
-![Picking your options to create a choropleth map](screenshots/qgis2_scrn34_count_points_in_polygons4.png)
+
+![Making a choropleth map with this new data](screenshots/new_nicar_screenshots/qgis_2_screenshot_42.png)
 
 
 Success! If you then go back to the main QGIS window, you can see your choropleth map where each county is coloured based on the number of solar power plants it has. 
 
 
-![Choropleth map is coloured by how many solar power plants are in each county](screenshots/qgis2_scrn35_count_points_in_polygons5.png)
+![new choropleth map](screenshots/new_nicar_screenshots/qgis_2_screenshot_43.png)
+
 
 ## Add Open Street Map data to your map: Quick OSM
 
