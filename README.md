@@ -338,13 +338,15 @@ If the text is quite long you can also go into the `Formatting` section to make 
 
 For this try wrapping lines to nine characters, this moves the label on to three lines.
 
+Also, our labels are quite small when we zoom out to state level, so let's increase the font size in the `text` tab. 14 works for this exercise.
+
 At the moment the labels are a bit bunched up, so let's try to sort that.
 
 In the `callouts` section, in `style` select `Manhattan lines`. This draws a vertical and horizontal line to the point.
 
 Under `label anchor points` select `Top Centre`, this refers to the path the lines will take.
 
-However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-20.0000`. 
+However, not much is showing yet, as we haven't changed the local of the label. Under the `Placement` tab, make sure the `mode` is set to `cartographic` and adjust the `distance to `-30.0000`. 
 
 
 ![offsetlabels](screenshots/new_nicar_screenshots/Screenshot_2022-03-01_at_14.32.51.png)
